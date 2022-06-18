@@ -1,0 +1,48 @@
+.card-listing{
+    ul {
+        padding-left: 0;
+    }
+    .list-group-item {
+        text-decoration: none;
+    
+        &:hover {
+            background-color: $white;
+        }
+        border-bottom: 1px solid rgb(245, 245, 245);
+        padding-left: 1rem;
+        padding: 1rem;
+    
+    }
+    .create-list:hover {
+        background-color: $light-gray;
+    }
+}
+
+.text-new {
+    background-color: rgb(252, 211, 77);
+    border-radius: 0.375rem;
+    padding: 0.25rem;
+    font-size: 0.875rem;
+    color: rgb(120, 53, 15);
+    text-align: center;
+}
+
+.card-header {
+    align-items: center;
+    background-color: $light-gray;
+    border-bottom: 1px solid rgb(245, 245, 245);
+    font-weight: 700;
+}
+
+.seeall {
+    color: $blue;        
+}
+.card-tags {
+    .seeall {
+        font-weight: bold;
+    }
+}
+
+.card-sponsorship, .card{
+    background-color: $light-gray;
+}
