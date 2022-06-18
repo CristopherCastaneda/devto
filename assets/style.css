@@ -199,13 +199,14 @@ ul.aside-navigation-links {
 
 .card-listing .list-group-item:hover {
   background-color: white;
+  color: #2f3ab2;
 }
 
-.card-listing .create-list:hover {
+.card-listing .list-group-item.create-list:hover {
   background-color: #fafafa;
 }
 
-.text-new {
+.card-listing .text-new {
   background-color: #fcd34d;
   border-radius: 0.375rem;
   padding: 0.25rem;
@@ -214,17 +215,22 @@ ul.aside-navigation-links {
   text-align: center;
 }
 
+.seeall {
+  color: #3b49df;
+}
+
 .card-header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background-color: #fafafa;
   border-bottom: 1px solid whitesmoke;
-  font-weight: 700;
+  font-size: 14px;
 }
 
-.seeall {
-  color: #3b49df;
+.card-header .card-title {
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .card-tags .seeall {
@@ -235,6 +241,11 @@ ul.aside-navigation-links {
   background-color: #fafafa;
 }
 
+.card-sponsorship h4, .card h4 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 main {
   color: black;
 }
@@ -243,9 +254,33 @@ img {
   max-width: 100%;
 }
 
-.main-profile {
+.card .main-profile {
   height: 32px;
   width: 32px;
+}
+
+.card .card-content {
+  padding-left: 36px;
+}
+
+.card .card-content .card-reactions {
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card .card-body .main-profile {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-name p.post-date {
+  font-size: 12px;
 }
 
 body {
