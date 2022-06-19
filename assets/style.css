@@ -186,8 +186,17 @@ ul.aside-navigation-links {
   color: #3d49df;
 }
 
+.card-listing .content-tags {
+  color: #717171;
+}
+
+.card-listing .content-tags .opacity-50 {
+  opacity: .5;
+}
+
 .card-listing ul {
   padding-left: 0;
+  color: #404040;
 }
 
 .card-listing .list-group-item {
@@ -199,7 +208,15 @@ ul.aside-navigation-links {
 
 .card-listing .list-group-item:hover {
   background-color: white;
+  cursor: pointer;
+}
+
+.card-listing .list-group-item:hover a {
   color: #2f3ab2;
+}
+
+.card-listing .list-group-item:hover .content-tags {
+  color: #717171;
 }
 
 .card-listing .list-group-item.create-list:hover {
@@ -268,6 +285,67 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.detail-aside {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 76px;
+}
+
+.detail-aside .card-profile {
+  color: #404040;
+}
+
+.detail-aside .card-profile .card-border {
+  height: 2rem;
+  background-color: #2f3ab2;
+}
+
+.detail-aside .card-profile .card-profile-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.detail-aside .card-profile .mt-n4 {
+  margin-top: -1rem;
+  z-index: 9;
+}
+
+.detail-aside .card-profile .card-profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.detail-aside .card-profile .btn-follow {
+  background-color: #3b49df;
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.detail-aside .card-profile .btn-follow:hover {
+  background-color: #2f3ab2;
+}
+
+.detail-aside .card-profile .card-profile-title {
+  color: #646464;
+}
+
+.detail-aside .card-profile ul.user-details {
+  list-style: none;
+  padding-left: 0;
+}
+
+.detail-aside .card-profile ul.user-details li .key {
+  color: #525252;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 10px;
 }
 
 .card {

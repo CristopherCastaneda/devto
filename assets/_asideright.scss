@@ -1,6 +1,14 @@
 .card-listing{
+    .content-tags{
+        color: #717171;  
+        .opacity-50{                    
+            opacity: .5;
+        }              
+    }
+    
     ul {
         padding-left: 0;
+        color: $card-profile-color;
     }
     .list-group-item {
         text-decoration: none;
@@ -9,7 +17,14 @@
         padding: 1rem;    
         &:hover {
             background-color: $white;
-            color: $dark-blue;
+            cursor: pointer;
+            a{
+                color: $dark-blue;
+            }       
+            
+            .content-tags{
+                color: #717171;                
+            }            
         }
         &.create-list:hover {
             background-color: $light-gray;
