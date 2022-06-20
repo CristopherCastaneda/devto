@@ -4,6 +4,7 @@
 @import "asideright";
 @import "main";
 @import "detail";
+@import "footer"
 
 body{
     background-color: $bg-body;
@@ -17,11 +18,9 @@ img{
 }
 a{
     color: #000;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 .footer{
-    a {
-   background-color: yellow;
-     }
-   }
+    background-color:black;
+}
