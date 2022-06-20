@@ -1,14 +1,15 @@
 /*Imports*/
 @import "variables";
 @import "nav";
-@import "asideright";
+// @import "asideright";
 @import "main";
 @import "detail";
-@import "footer"
+@import "footer";
 
 body{
     background-color: $bg-body;
 }
+
 img{
     max-width: 100%;
 }
