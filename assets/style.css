@@ -1,6 +1,6 @@
 /*Imports*/
 header {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -8,53 +8,42 @@ header {
   height: 60px;
   z-index: 9;
 }
-
 header nav .logo .navbar-brand {
   max-width: 50px;
   max-height: 40px;
 }
-
 header nav .logo .btn-hamburger {
   border: none;
   background-color: transparent;
 }
-
 header nav .logo .btn-hamburger:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
-
 header nav .logo form {
   min-width: 400px;
 }
-
 header nav .logo form #button-addon2 {
-  background-color: white;
-  border: 1px solid #ced4da;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(206, 212, 218);
   border-left: none;
 }
-
 header nav .logo form #button-addon2 svg path {
   fill: currentColor;
 }
-
 header nav .logo form #button-addon2:hover {
   background-color: rgba(59, 73, 223, 0.1);
-  color: #2f3ab2;
+  color: rgb(47, 58, 178);
 }
-
 header nav .user {
   gap: 5px;
 }
-
 header nav .user .n-link {
   width: 100%;
   height: 100%;
 }
-
 header nav .user .btn-create-post {
-  color: #3b49df;
-  border: 1px solid #3b49df;
+  color: rgb(59, 73, 223);
+  border: 1px solid rgb(59, 73, 223);
   border-radius: 8px;
   background-color: transparent;
   padding: 7px 15px;
@@ -62,37 +51,30 @@ header nav .user .btn-create-post {
   text-decoration: none;
   -webkit-text-size-adjust: 100%;
      -moz-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
   white-space: nowrap;
   font-weight: 500;
 }
-
 header nav .user .btn-create-post:hover {
   color: white;
-  background-color: #3b49df;
-  border-color: #2f3ab2;
+  background-color: rgb(59, 73, 223);
+  border-color: rgb(47, 58, 178);
   text-decoration: underline;
 }
-
 header nav .user .user-menu {
   max-width: 40px;
   max-height: 40px;
 }
-
 header nav .custom-nav-off {
   width: 75% !important;
 }
-
 header nav .custom-nav-off h2.offcanvas-title {
   font-size: 18px;
   font-weight: bold;
 }
-
 header nav .custom-nav-off .btn-close {
   background: none;
 }
-
 header nav .search-box {
   position: absolute;
   width: 100%;
@@ -100,16 +82,13 @@ header nav .search-box {
   left: 16px;
   padding: 0;
   height: 0;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   overflow: hidden;
   width: calc(100% - 32px);
 }
-
 header nav #cbSearch {
   display: none;
 }
-
 header nav #cbSearch:checked ~ #search-box-container {
   height: 80px;
 }
@@ -125,30 +104,26 @@ ul.aside-navigation-links {
   padding: 4px;
   border-radius: 4px;
 }
-
 .social-link svg path, .tag-link svg path {
   fill: currentColor;
 }
-
 .social-link:hover, .tag-link:hover {
   background-color: rgba(59, 73, 223, 0.1);
-  color: #2f3ab2;
+  color: rgb(47, 58, 178);
 }
 
 .aside-navigation-link {
   color: #000;
   width: 100%;
   display: block;
-  padding: .5rem 0 .5rem .5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
 }
-
 .aside-navigation-link:hover {
-  color: #2f3ab2;
+  color: rgb(47, 58, 178);
   background-color: rgba(59, 73, 223, 0.1);
   border-radius: 8px;
   text-decoration: underline;
 }
-
 .aside-navigation-link span {
   height: 24px;
   width: 24px;
@@ -160,28 +135,23 @@ ul.aside-navigation-links {
 .aside-left {
   padding-left: 1rem;
 }
-
 .aside-left h2 {
   font-size: 16px;
   font-weight: bold;
 }
-
 .aside-left .aside-tags {
   max-height: 42vh;
   gap: 10px;
   overflow-y: auto;
 }
-
 .aside-left .sponsor-card {
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
   border-radius: 8px;
   padding: 12px;
 }
-
 .aside-left .sponsor-card img {
   border-radius: 8px;
 }
-
 .aside-left .sponsor-card a {
   color: #3d49df;
 }
@@ -189,62 +159,51 @@ ul.aside-navigation-links {
 .card-listing .content-tags {
   color: #717171;
 }
-
 .card-listing .content-tags .opacity-50 {
-  opacity: .5;
+  opacity: 0.5;
 }
-
 .card-listing ul {
   padding-left: 0;
   color: #404040;
 }
-
 .card-listing .list-group-item {
   text-decoration: none;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid rgb(245, 245, 245);
   padding-left: 1rem;
   padding: 1rem;
 }
-
 .card-listing .list-group-item:hover {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   cursor: pointer;
 }
-
 .card-listing .list-group-item:hover a {
-  color: #2f3ab2;
+  color: rgb(47, 58, 178);
 }
-
 .card-listing .list-group-item:hover .content-tags {
   color: #717171;
 }
-
 .card-listing .list-group-item.create-list:hover {
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
 }
-
 .card-listing .text-new {
-  background-color: #fcd34d;
+  background-color: rgb(252, 211, 77);
   border-radius: 0.375rem;
   padding: 0.25rem;
   font-size: 0.875rem;
-  color: #78350f;
+  color: rgb(120, 53, 15);
   text-align: center;
 }
 
 .seeall {
-  color: #3b49df;
+  color: rgb(59, 73, 223);
 }
 
 .card-header {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #fafafa;
-  border-bottom: 1px solid whitesmoke;
+  align-items: center;
+  background-color: rgb(250, 250, 250);
+  border-bottom: 1px solid rgb(245, 245, 245);
   font-size: 14px;
 }
-
 .card-header .card-title {
   font-weight: 700;
   font-size: 20px;
@@ -255,9 +214,8 @@ ul.aside-navigation-links {
 }
 
 .card-sponsorship, .card, #comments {
-  background-color: #fafafa;
+  background-color: rgb(250, 250, 250);
 }
-
 .card-sponsorship h4, .card h4, #comments h4 {
   font-size: 14px;
   font-weight: 500;
@@ -275,51 +233,39 @@ img {
   height: 32px;
   width: 32px;
 }
-
 .card .card-content {
   padding-left: 36px;
 }
-
 .card .card-content .card-reactions {
   gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .card .card-content .card-link, .card .card-content .card-reactions-detail {
   padding: 4px 8px;
   border-radius: 6px;
 }
-
 .card .card-content .card-link:hover, .card .card-content .card-reactions-detail:hover {
   background-color: rgba(23, 23, 23, 0.05);
   color: #171717;
 }
-
 .card .card-content .card-link:hover a, .card .card-content .card-reactions-detail:hover a {
   color: #171717;
 }
-
 .card .card-content .card-reactions {
   font-size: 12px;
 }
-
 .card .card-content .card-reactions .card-reactions-detail {
   font-size: 14px;
 }
-
 .card .card-content .card-reactions .text-decoration-none:hover {
   color: #171717;
 }
-
 .card .card-content .card-reactions .btn-secondary {
   background-color: #d6d6d7;
   color: #3d3d3d;
   border: 0;
   font-size: 14px;
 }
-
 .card .card-content .card-reactions .btn-secondary:hover {
   background-color: #bdbdbd;
 }
@@ -329,26 +275,21 @@ img {
   position: sticky;
   top: 76px;
 }
-
 .detail-aside .card-profile {
   color: #404040;
 }
-
 .detail-aside .card-profile .card-border {
   height: 2rem;
-  background-color: #2f3ab2;
+  background-color: rgb(47, 58, 178);
 }
-
 .detail-aside .card-profile .card-profile-name {
   font-size: 20px;
   font-weight: 700;
 }
-
 .detail-aside .card-profile .mt-n4 {
   margin-top: -1rem;
   z-index: 9;
 }
-
 .detail-aside .card-profile .card-profile-avatar {
   width: 48px;
   height: 48px;
@@ -356,28 +297,23 @@ img {
   overflow: hidden;
   margin-right: 10px;
 }
-
 .detail-aside .card-profile .btn-follow {
-  background-color: #3b49df;
-  color: white;
+  background-color: rgb(59, 73, 223);
+  color: rgb(255, 255, 255);
   width: 100%;
   margin: 0 auto;
   text-align: center;
 }
-
 .detail-aside .card-profile .btn-follow:hover {
-  background-color: #2f3ab2;
+  background-color: rgb(47, 58, 178);
 }
-
 .detail-aside .card-profile .card-profile-title {
   color: #646464;
 }
-
 .detail-aside .card-profile ul.user-details {
   list-style: none;
   padding-left: 0;
 }
-
 .detail-aside .card-profile ul.user-details li .key {
   color: #525252;
   font-size: 12px;
@@ -388,7 +324,6 @@ img {
 .card {
   overflow: hidden;
 }
-
 .card .card-body .main-profile {
   width: 40px;
   height: 40px;
@@ -402,29 +337,23 @@ img {
 #comments h2 {
   font-size: 24px;
 }
-
 #comments .comment-subscription button {
-  border: 1px solid #d6d6d7;
+  border: 1px solid rgb(214, 214, 215);
   background-color: #FFF;
-  -webkit-box-shadow: black 0px 1px 3px 0px;
-          box-shadow: black 0px 1px 3px 0px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px 0px;
 }
-
 #comments #comments-container {
   gap: 10px;
 }
-
 #comments #comments-container .form-comments {
   width: 100%;
 }
-
 #comments #comments-container .form-comments .form-comment-area {
   width: 100%;
   height: 150px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 8px;
 }
-
 #comments #comments-container .form-comments .form-comment-area textarea {
   width: 100%;
   height: 80px;
@@ -432,69 +361,67 @@ img {
   border: 0;
   resize: none;
 }
-
 #comments #comments-container .form-comments .form-comment-area textarea:focus {
   border: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
-
 #comments #comments-container .form-comments .form-comment-area .comment-form-toolbar {
   gap: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   display: none;
 }
-
 #comments #comments-container .comment-form-buttons {
   gap: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   display: none;
 }
-
 #comments #comments-container .comment-form-buttons button {
   padding: 8px 16px;
 }
-
 #comments #comments-container .comment-form-buttons button.btn-submit {
-  background-color: #3b49df;
-  color: white;
+  background-color: rgb(59, 73, 223);
+  color: rgb(255, 255, 255);
 }
-
 #comments #comments-container .comment-form-buttons button.btn-preview {
-  background-color: #d6d6d7;
-  color: #3d3d3d;
+  background-color: rgb(214, 214, 215);
+  color: rgb(61, 61, 61);
 }
-
 #comments .code-of-conduct {
   font-size: 14px;
 }
-
 #comments .code-of-conduct a {
   color: #717171;
 }
-
 #comments .code-of-conduct a:hover {
   color: #717171;
 }
 
 #comments #comments-container .form-comment-area:focus-within ~ .comment-form-buttons, #comments #comments-container .form-comment-area:focus-within .comment-form-toolbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
+.read-next {
+  overflow: hidden;
+  height: 64px;
+  width: 64px;
+}
+
+.read-text h3 {
+  font-size: 20px;
+}
+
+h2.read-title {
+  font-size: 24px;
+}
+
+.read-all {
+  color: #404040;
+}
+
 body {
-  background-color: whitesmoke;
+  background-color: rgb(245, 245, 245);
 }
 
 img {
@@ -510,5 +437,6 @@ a {
   text-decoration: none;
 }
 
-
-/*# sourceMappingURL=style.css.map */
+.footer {
+  background-color: black;
+}/*# sourceMappingURL=style.css.map */
