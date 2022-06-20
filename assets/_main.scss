@@ -16,6 +16,38 @@ img{
             gap:10px;
             align-items: center;
         }
+        .card-link, .card-reactions-detail{            
+            padding: 4px 8px;
+            border-radius: 6px;
+            &:hover{
+                background-color: rgba(23,23,23,.05);
+                color: #171717;
+                a{
+                    color:#171717;
+                }
+            }
+        }
+        .card-reactions{
+            font-size: 12px;
+            .card-reactions-detail{
+                font-size: 14px;
+            }
+            .text-decoration-none{
+                &:hover{
+                    color: #171717;
+                }
+            }
+            .btn-secondary{
+                background-color: #d6d6d7;
+                color: #3d3d3d;
+                border: 0;
+                font-size: 14px;
+                &:hover{
+                    background-color: #bdbdbd;
+                }
+            }
+        }
+        
     }
 }
 

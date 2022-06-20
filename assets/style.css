@@ -254,11 +254,11 @@ ul.aside-navigation-links {
   font-weight: bold;
 }
 
-.card-sponsorship, .card {
+.card-sponsorship, .card, #comments {
   background-color: #fafafa;
 }
 
-.card-sponsorship h4, .card h4 {
+.card-sponsorship h4, .card h4, #comments h4 {
   font-size: 14px;
   font-weight: 500;
 }
@@ -285,6 +285,43 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.card .card-content .card-link, .card .card-content .card-reactions-detail {
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.card .card-content .card-link:hover, .card .card-content .card-reactions-detail:hover {
+  background-color: rgba(23, 23, 23, 0.05);
+  color: #171717;
+}
+
+.card .card-content .card-link:hover a, .card .card-content .card-reactions-detail:hover a {
+  color: #171717;
+}
+
+.card .card-content .card-reactions {
+  font-size: 12px;
+}
+
+.card .card-content .card-reactions .card-reactions-detail {
+  font-size: 14px;
+}
+
+.card .card-content .card-reactions .text-decoration-none:hover {
+  color: #171717;
+}
+
+.card .card-content .card-reactions .btn-secondary {
+  background-color: #d6d6d7;
+  color: #3d3d3d;
+  border: 0;
+  font-size: 14px;
+}
+
+.card .card-content .card-reactions .btn-secondary:hover {
+  background-color: #bdbdbd;
 }
 
 .detail-aside {
@@ -359,6 +396,101 @@ img {
 
 .profile-name p.post-date {
   font-size: 12px;
+}
+
+/*Comments*/
+#comments h2 {
+  font-size: 24px;
+}
+
+#comments .comment-subscription button {
+  border: 1px solid #d6d6d7;
+  background-color: #FFF;
+  -webkit-box-shadow: black 0px 1px 3px 0px;
+          box-shadow: black 0px 1px 3px 0px;
+}
+
+#comments #comments-container {
+  gap: 10px;
+}
+
+#comments #comments-container .form-comments {
+  width: 100%;
+}
+
+#comments #comments-container .form-comments .form-comment-area {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+#comments #comments-container .form-comments .form-comment-area textarea {
+  width: 100%;
+  height: 80px;
+  background-color: transparent;
+  border: 0;
+  resize: none;
+}
+
+#comments #comments-container .form-comments .form-comment-area textarea:focus {
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#comments #comments-container .form-comments .form-comment-area .comment-form-toolbar {
+  gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: none;
+}
+
+#comments #comments-container .comment-form-buttons {
+  gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  display: none;
+}
+
+#comments #comments-container .comment-form-buttons button {
+  padding: 8px 16px;
+}
+
+#comments #comments-container .comment-form-buttons button.btn-submit {
+  background-color: #3b49df;
+  color: white;
+}
+
+#comments #comments-container .comment-form-buttons button.btn-preview {
+  background-color: #d6d6d7;
+  color: #3d3d3d;
+}
+
+#comments .code-of-conduct {
+  font-size: 14px;
+}
+
+#comments .code-of-conduct a {
+  color: #717171;
+}
+
+#comments .code-of-conduct a:hover {
+  color: #717171;
+}
+
+#comments #comments-container .form-comment-area:focus-within ~ .comment-form-buttons, #comments #comments-container .form-comment-area:focus-within .comment-form-toolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 body {
