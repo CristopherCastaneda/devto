@@ -276,12 +276,20 @@ img {
   width: 32px;
 }
 
+.card .card-body {
+  font-size: 14px;
+}
+
+.card .card-body h3 {
+  font-size: 1.2rem;
+}
+
 .card .card-content {
-  padding-left: 36px;
+  /*padding-left: 36px;*/
 }
 
 .card .card-content .card-reactions {
-  gap: 10px;
+  /*gap:10px;*/
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -307,6 +315,17 @@ img {
 
 .card .card-content .card-reactions .card-reactions-detail {
   font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.card .card-content .card-reactions .card-reactions-detail a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
 }
 
 .card .card-content .card-reactions .text-decoration-none:hover {
@@ -405,27 +424,43 @@ img {
 
 #comments .comment-subscription button {
   border: 1px solid #d6d6d7;
-  background-color: #FFF;
+  background-color: white;
   -webkit-box-shadow: black 0px 1px 3px 0px;
           box-shadow: black 0px 1px 3px 0px;
 }
 
-#comments #comments-container {
+#comments .comments-container {
   gap: 10px;
 }
 
-#comments #comments-container .form-comments {
+#comments .comments-container span.comments-avatar {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+
+#comments .comments-container .comment-content {
   width: 100%;
 }
 
-#comments #comments-container .form-comments .form-comment-area {
+#comments .comments-container .comment-content .comment {
+  border: 1px solid #d6d6d7;
+  border-radius: 8px;
+  background-color: white;
+}
+
+#comments .comments-container .form-comments {
   width: 100%;
-  height: 150px;
+}
+
+#comments .comments-container .form-comments .form-comment-area {
+  width: 100%;
   background-color: white;
   border-radius: 8px;
+  border: 1px solid #d6d6d7;
 }
 
-#comments #comments-container .form-comments .form-comment-area textarea {
+#comments .comments-container .form-comments .form-comment-area textarea {
   width: 100%;
   height: 80px;
   background-color: transparent;
@@ -433,13 +468,17 @@ img {
   resize: none;
 }
 
-#comments #comments-container .form-comments .form-comment-area textarea:focus {
+#comments .comments-container .form-comments .form-comment-area textarea:focus {
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-#comments #comments-container .form-comments .form-comment-area .comment-form-toolbar {
+#comments .comments-container .form-comments .form-comment-area:focus-within {
+  border: 2px solid #3b49df;
+}
+
+#comments .comments-container .form-comments .form-comment-area .comment-form-toolbar {
   gap: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -447,10 +486,28 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-top: 1px solid #d6d6d7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: none;
 }
 
-#comments #comments-container .comment-form-buttons {
+#comments .comments-container .form-comments .form-comment-area .comment-form-toolbar button {
+  font-size: 12px;
+  color: #646464;
+  border: 0;
+}
+
+#comments .comments-container .form-comments .form-comment-area .comment-form-toolbar button path {
+  fill: #646464;
+}
+
+#comments .comments-container .form-comments .form-comment-area .comment-form-toolbar button:hover {
+  background-color: rgba(0, 0, 0, 0.035);
+}
+
+#comments .comments-container .comment-form-buttons {
   gap: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -461,16 +518,16 @@ img {
   display: none;
 }
 
-#comments #comments-container .comment-form-buttons button {
+#comments .comments-container .comment-form-buttons button {
   padding: 8px 16px;
 }
 
-#comments #comments-container .comment-form-buttons button.btn-submit {
+#comments .comments-container .comment-form-buttons button.btn-submit {
   background-color: #3b49df;
   color: white;
 }
 
-#comments #comments-container .comment-form-buttons button.btn-preview {
+#comments .comments-container .comment-form-buttons button.btn-preview {
   background-color: #d6d6d7;
   color: #3d3d3d;
 }
@@ -487,10 +544,125 @@ img {
   color: #717171;
 }
 
-#comments #comments-container .form-comment-area:focus-within ~ .comment-form-buttons, #comments #comments-container .form-comment-area:focus-within .comment-form-toolbar {
+#comments .btn-reaction {
+  border: 0;
+}
+
+#comments .btn-reaction:hover {
+  background-color: rgba(0, 0, 0, 0.035);
+}
+
+#comments .btn-reaction.liked {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+#comments .btn-reaction.liked path {
+  fill: #dc2626;
+}
+
+#comments .comments-container .form-comment-area:focus-within ~ .comment-form-buttons, #comments .comments-container .form-comment-area:focus-within .comment-form-toolbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.aside-left {
+  height: 100%;
+}
+
+.reactions-left-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: 999;
+  background: white;
+  -webkit-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.035);
+          box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.035);
+  border-radius: 8px 8px 0 0;
+}
+
+.reactions-left-container .svg-container {
+  padding: .5rem;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like {
+  gap: 4px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 0;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like span.reaction-count {
+  font-size: 14px;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container {
+  background-color: rgba(0, 0, 0, 0.035);
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.red {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.red path {
+  fill: #dc2626;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.green {
+  background-color: rgba(5, 150, 105, 0.1);
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.green path {
+  fill: #059669;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.blue {
+  background-color: rgba(79, 70, 229, 0.1);
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.blue path {
+  fill: #4f46e5;
+}
+
+/*Responsive*/
+@media only screen and (min-width: 767px) {
+  .reactions-left-container {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+    position: initial;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(60px + 16px);
+  }
+  .reactions-left-container .reactions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .reactions-left-container .reactions .reaction .reaction-button-like {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 body {
@@ -510,5 +682,7 @@ a {
   text-decoration: none;
 }
 
-
+.footer {
+  background-color: black;
+}
 /*# sourceMappingURL=style.css.map */

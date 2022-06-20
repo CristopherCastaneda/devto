@@ -10,15 +10,21 @@ img{
         height: 32px;
         width: 32px;
     }
+    .card-body{
+        font-size: 14px;
+        h3{
+            font-size: 1.2rem;
+        }
+    }
     .card-content{
-        padding-left: 36px;
+        /*padding-left: 36px;*/
         .card-reactions{
-            gap:10px;
+            /*gap:10px;*/
             align-items: center;
         }
         .card-link, .card-reactions-detail{            
             padding: 4px 8px;
-            border-radius: 6px;
+            border-radius: 6px;            
             &:hover{
                 background-color: rgba(23,23,23,.05);
                 color: #171717;
@@ -31,6 +37,12 @@ img{
             font-size: 12px;
             .card-reactions-detail{
                 font-size: 14px;
+                display: flex;
+                gap: 5px;
+                a{
+                    display: flex;
+                    gap: 5px;
+                }
             }
             .text-decoration-none{
                 &:hover{
