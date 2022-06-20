@@ -416,6 +416,10 @@ h2.read-title {
   font-size: 24px;
 }
 
+.read-all {
+  color: #404040;
+}
+
 body {
   background-color: rgb(245, 245, 245);
 }
