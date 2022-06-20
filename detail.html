@@ -247,22 +247,19 @@
             </div>
             <div class="col-12 col-md-7">
                 <main class="posts">
-                    <div class="card card-detail">
-                        <img src="./assets/images/banner.png"
-                            alt="main-image">
+                    <article class="card card-detail rounded-0 rounded-top">
+                        <img src="./assets/images/banner.png" alt="main-image">
                         <div class="card-body p-5">
                             <div class="d-flex align-items-center mb-3">
                                 <div class="main-profile">
-                                    <img class="rounded-circle"
-                                        src="./assets/images/avatars/meowth.png"
-                                        alt="profile">
+                                    <img class="rounded-circle" src="./assets/images/avatars/meowth.png" alt="profile">
                                 </div>
                                 <div class="mx-2 profile-name">
                                     <a href="" class="text-decoration-none">Meowth</a>
                                     <p class="post-date m-0">Jun 16 (4 days Ago)</p>
                                 </div>
                             </div>
-                            <div class="card-content-detail">
+                            <div class=" card-content p-0">
                                 <h1>What was your win this week?</h1>
                                 <div class="d-flex">
                                     <a href="#" class="card-link text-decoration-none">#discuss</a>
@@ -273,7 +270,8 @@
                             <div class="card-post pt-4">
 
                                 <p>Hey there! </p>
-                                <p>Looking back on this past week, what was something you were proud of accomplishing?</p>
+                                <p>Looking back on this past week, what was something you were proud of accomplishing?
+                                </p>
 
                                 <p>All wins count — big or small 🎉</p>
                                 <p>Examples of 'wins' include:</p>
@@ -283,11 +281,87 @@
                                     <li>Fixing a tricky bug</li>
                                     <li>Attending CodeLand... or whatever else might spark joy ❤️ </li>
                                 </ul>
-                                
+
                                 <p>Have a wonderful weekend!</p>
-                                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--vIJLV2gv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/knom1otmggk9ehl57bot.gif" alt="Elmo dancing around in a party hat over a blue background" loading="lazy" width="600" height="450" data-animated="true" id="animated-0" class="ff-image">
+                                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--vIJLV2gv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/knom1otmggk9ehl57bot.gif"
+                                    alt="Elmo dancing around in a party hat over a blue background" loading="lazy"
+                                    width="600" height="450" data-animated="true" id="animated-0" class="ff-image">
                             </div>
                         </div>
+                    </article>
+                    <section id="comments" class="mb-4 p-5 border">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <h2> Discussion <span class="comments-count">(3)</span></h2>
+
+                            <div class="comment-subscription">
+                                <button type="button" class="btn btn-light">Subscribe</button>
+                            </div>
+
+                        </div>
+
+                        <div id="comments-container" class="d-flex align-items-start">
+                            <span class="comments-avatar">
+                                <img src="./assets/images/avatars/avatar.png" width="32" height="32" alt="pic">
+                            </span>
+                            <form class="form-comments">
+                                <div class="form-comment-area" tabindex="0">
+                                    <textarea placeholder="Add to the discussion" class="form-control"
+                                        aria-label="Add a comment to the discussion"></textarea>
+                                    <div class="comment-form-toolbar">
+                                        <div class="d-flex form-buttons-toolbar">
+                                            <button type="button"
+                                                class="crayons-btn crayons-btn--s crayons-btn--icon-left crayons-btn--ghost-dimmed"
+                                                onclick="handleImageUpload(event,'main')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" role="img" class="crayons-icon">
+                                                    <path
+                                                        d="M20 5H4v14l9.292-9.294a1 1 0 011.414 0L20 15.01V5zM2 3.993A1 1 0 012.992 3h18.016c.548 0 .992.445.992.993v16.014a1 1 0 01-.992.993H2.992A.993.993 0 012 20.007V3.993zM8 11a2 2 0 110-4 2 2 0 010 4z">
+                                                    </path>
+                                                </svg>
+
+                                                <span>Upload image</span>
+                                            </button>
+
+                                            <button type="button"
+                                                class="crayons-btn crayons-btn--s crayons-btn--icon-left crayons-btn--ghost-dimmed response-templates-button"
+                                                title="Use a response template" data-has-listener="true"
+                                                data-form-id="new_comment">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" role="img" class="crayons-icon">
+                                                    <path
+                                                        d="M3 18.5V5a3 3 0 013-3h14a1 1 0 011 1v18a1 1 0 01-1 1H6.5A3.5 3.5 0 013 18.5zM19 20v-3H6.5a1.5 1.5 0 100 3H19zM10 4H6a1 1 0 00-1 1v10.337A3.485 3.485 0 016.5 15H19V4h-2v8l-3.5-2-3.5 2V4z">
+                                                    </path>
+                                                </svg>
+                                                <span class="hidden s:inline-block" aria-hidden="false">Templates</span>
+                                            </button>
+                                        </div>
+                                        <a href="#" class="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                                height="24" role="img"
+                                                aria-labelledby="a719kqxeiwm2ywzwnm985y3gfefx3v8p" class="crayons-icon">
+                                                <title id="a719kqxeiwm2ywzwnm985y3gfefx3v8p">Editor guide</title>
+                                                <path
+                                                    d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z">
+                                                </path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="comment-form-buttons mt-3">
+                                    <button type="submit" class="btn btn-submit" disabled>Submit</button>
+                                    <button type="button" class="btn btn-preview" disabled>Preview</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="d-flex items-align-center justify-content-center code-of-conduct">
+                            <a href="#" class="text-decoration-none">Code of Conduct</a>
+                            <span class="opacity-25 px-2" role="presentation">•</span>
+                            <a href="#" class="text-decoration-none">Report abuse</a>
+                        </div>
+                    </section>
+
+
                 </main>
             </div>
             <div class="col-12 col-md-3 d-none d-xl-block">
@@ -354,7 +428,7 @@
                             <div class="card-header d-flex justify-content-between bg-none ">
                                 <h3 class="card-title">More from <a class="seeall" href="#">Meowth</a></h3>
                             </div>
-                            <ul>                                
+                            <ul>
                                 <li class="list-group-item">
                                     <a href="#">
                                         Becoming a Better Developer Through Open Source
