@@ -1,4 +1,18 @@
-@mixin button-variant{
-  background-color: $card-profile-color;
+.container{
+  padding:30px;
+}
 
+
+.row{
+  .content{
+    p{
+      font-family: $write-footer;
+      font-size:14px;
+    }
+    &.a{
+      font-family: $write-footer;
+      font-size: 16px;
+      color: blue;
+    }
+  }
 }
