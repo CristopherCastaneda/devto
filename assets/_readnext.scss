@@ -1,23 +1,26 @@
-.read-next{
-    overflow: hidden;
-    height: 64px;
-    width: 64px;   
-}
-
-.read-text{
-
-    h3{
-        font-size: 20px; 
+.read-all {
+    color: $card-profile-color;
+    h2.read-title {
+        font-size: 24px
     }
-    
-}
-
-h2.read-title{
-    font-size: 24px
-}
-
-
-
-.read-all{
-color:$card-profile-color;
+    .read-next-container {
+        &:hover{
+            cursor: pointer;
+            color: $blue;
+        }
+        .read-next {
+            overflow: hidden;
+            height: 64px;
+            width: 64px;
+        }
+        .read-text {
+            h3 {
+                font-size: 20px;
+            }
+            p {
+                padding: 0;
+                margin: 0;
+            }       
+        }    
+    }
 }
