@@ -343,6 +343,29 @@ img {
   background-color: #bdbdbd;
 }
 
+.nav-item {
+  color: #171717;
+  border-radius: 0.375rem;
+  background-color: none;
+}
+
+.nav-item .nav-link {
+  color: #171717;
+  border: 0;
+}
+
+.nav-item .nav-link.active {
+  font-weight: bold;
+  background-color: whitesmoke;
+  color: #000;
+}
+
+.nav-item .nav-link:hover {
+  background-color: white;
+  color: #3b49df;
+  background-color: none;
+}
+
 .detail-aside {
   position: -webkit-sticky;
   position: sticky;
@@ -665,22 +688,32 @@ img {
   }
 }
 
-.read-next {
+.read-all {
+  color: #404040;
+}
+
+.read-all h2.read-title {
+  font-size: 24px;
+}
+
+.read-all .read-next-container:hover {
+  cursor: pointer;
+  color: #3b49df;
+}
+
+.read-all .read-next-container .read-next {
   overflow: hidden;
   height: 64px;
   width: 64px;
 }
 
-.read-text h3 {
+.read-all .read-next-container .read-text h3 {
   font-size: 20px;
 }
 
-h2.read-title {
-  font-size: 24px;
-}
-
-.read-all {
-  color: #404040;
+.read-all .read-next-container .read-text p {
+  padding: 0;
+  margin: 0;
 }
 
 body {
