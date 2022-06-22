@@ -157,10 +157,6 @@ ul.aside-navigation-links {
   margin-right: 2px;
 }
 
-.aside-left {
-  padding-left: 1rem;
-}
-
 .aside-left h2 {
   font-size: 16px;
   font-weight: bold;
@@ -356,7 +352,7 @@ img {
 
 .nav-item .nav-link.active {
   font-weight: bold;
-  background-color: whitesmoke;
+  background-color: white;
   color: #000;
 }
 
@@ -688,6 +684,17 @@ img {
   }
 }
 
+.row .content p {
+  font-family: var(--ff-sans-serif);
+  font-size: 14px;
+}
+
+.row .content.a {
+  font-family: var(--ff-sans-serif);
+  font-size: 16px;
+  color: blue;
+}
+
 .read-all {
   color: #404040;
 }
@@ -717,7 +724,7 @@ img {
 }
 
 body {
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 img {
@@ -731,9 +738,5 @@ img {
 a {
   color: #000;
   text-decoration: none;
-}
-
-.footer {
-  background-color: black;
 }
 /*# sourceMappingURL=style.css.map */
