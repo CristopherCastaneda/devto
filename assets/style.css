@@ -352,7 +352,7 @@ img {
 
 .nav-item .nav-link.active {
   font-weight: bold;
-  background-color: white;
+  background-color: whitesmoke;
   color: #000;
 }
 
@@ -724,7 +724,7 @@ img {
 }
 
 body {
-  background-color: white;
+  background-color: whitesmoke;
 }
 
 img {
