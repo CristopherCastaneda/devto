@@ -82,3 +82,12 @@ img{
         }
     }
 }
+
+/*Responsive*/
+@media only screen and (min-width:767px)
+{
+    .offcanvas-backdrop.show {
+        opacity: 0;
+    }         
+   
+}

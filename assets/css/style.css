@@ -362,6 +362,13 @@ img {
   background-color: none;
 }
 
+/*Responsive*/
+@media only screen and (min-width: 767px) {
+  .offcanvas-backdrop.show {
+    opacity: 0;
+  }
+}
+
 .detail-aside {
   position: -webkit-sticky;
   position: sticky;
@@ -656,6 +663,26 @@ img {
   fill: #4f46e5;
 }
 
+.reactions-left-container .reactions .reaction #article-show-more-dropdown {
+  display: none;
+  min-width: 250px;
+  /* width: 100%; */
+  position: absolute;
+  top: unset;
+  bottom: 100%;
+  z-index: 400;
+  left: 0;
+  right: 0;
+  background: white;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.reactions-left-container .reactions .reaction #article-show-more-dropdown #copy-url-button {
+  width: 100%;
+}
+
 /*Responsive*/
 @media only screen and (min-width: 767px) {
   .reactions-left-container {
@@ -676,11 +703,18 @@ img {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .reactions-left-container .reactions .reaction {
+    position: relative;
+  }
   .reactions-left-container .reactions .reaction .reaction-button-like {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .reactions-left-container .reactions .reaction #article-show-more-dropdown {
+    top: 20px;
+    left: 60px;
   }
 }
 
@@ -692,7 +726,7 @@ img {
 .row .content.a {
   font-family: var(--ff-sans-serif);
   font-size: 16px;
-  color: blue;
+  color: #3b49df;
 }
 
 .read-all {
@@ -710,8 +744,12 @@ img {
 
 .read-all .read-next-container .read-next {
   overflow: hidden;
-  height: 64px;
-  width: 64px;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.read-all .read-next-container .read-text {
+  width: 100%;
 }
 
 .read-all .read-next-container .read-text h3 {
@@ -721,6 +759,14 @@ img {
 .read-all .read-next-container .read-text p {
   padding: 0;
   margin: 0;
+}
+
+/*Responsive*/
+@media only screen and (min-width: 767px) {
+  .read-all .read-next-container .read-next {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 
 body {

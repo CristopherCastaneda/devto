@@ -1,0 +1,38 @@
+.read-all {
+    color: $card-profile-color;
+    h2.read-title {
+        font-size: 24px
+    }
+    .read-next-container {
+        &:hover{
+            cursor: pointer;
+            color: $blue;
+        }
+        .read-next {
+            overflow: hidden;
+            height: 3.5rem;
+            width: 3.5rem;
+        }
+        .read-text {
+            width: 100%;
+            h3 {
+                font-size: 20px;
+            }
+            p {
+                padding: 0;
+                margin: 0;
+            }       
+        }    
+    }
+}
+
+/*Responsive*/
+@media only screen and (min-width:767px)
+{
+    .read-all .read-next-container .read-next {
+                
+                height: 4rem;
+                width: 4rem;
+            }           
+   
+}

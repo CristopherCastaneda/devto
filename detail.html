@@ -10,7 +10,7 @@
         href="https://res.cloudinary.com/practicaldev/image/fetch/s--E8ak4Hr1--/c_limit,f_auto,fl_progressive,q_auto,w_32/https://dev-to.s3.us-east-2.amazonaws.com/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
@@ -74,7 +74,7 @@
                     </a>
                 </div>
             </div>
-            <div class="offcanvas offcanvas-start custom-nav-off" tabindex="-1" id="offcanvasNavbar"
+            <div class="offcanvas offcanvas-start d-md-none custom-nav-off" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header align-items-baseline">
                     <h2 class="offcanvas-title" id="offcanvasNavbarLabel">DEV Community</h2>
@@ -300,6 +300,37 @@
                                         </svg>
                                     </div>
                                 </button>
+                                <div id="article-show-more-dropdown" class="p-3 m-1">
+                                    <div>
+                                      <button id="copy-url-button" class="d-flex justify-content-between border-0 bg-transparent p-0 mb-2" data-posturl="https://dev.to/devteam/what-was-your-win-this-week-1ee2">
+                                        <span class="fw-bold">Copy link</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="article-copy-icon" role="img" aria-labelledby="anbewtpkbqr2qb0utnwm7uyhh7hj9m6" aria-hidden="true" class="crayons-icon mx-2 shrink-0"><title id="anbewtpkbqr2qb0utnwm7uyhh7hj9m6">Copy link</title>
+                                            <path d="M7 6V3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 013 21l.003-14c0-.552.45-1 1.007-1H7zm2 0h8v10h2V4H9v2zm-2 5v2h6v-2H7zm0 4v2h6v-2H7z"></path>
+                                        </svg>                            
+                                      </button>
+                                      <div id="article-copy-link-announcer" aria-live="polite" class="crayons-notice crayons-notice--success my-2 p-1" hidden="">Copied to Clipboard</div>
+                                    </div>
+                            
+                                    <div class="show-more-links">
+                                      <a target="_blank" class="d-block mb-2" rel="noopener" href="#">
+                                        Share to Twitter
+                                      </a>
+                                      <a target="_blank" class="d-block mb-2" rel="noopener" href="#">
+                                        Share to LinkedIn
+                                      </a>
+                                      <a target="_blank" class="d-block mb-2" rel="noopener" href="#">
+                                        Share to Reddit
+                                      </a>
+                                      <a target="_blank" class="d-block mb-2" rel="noopener" href="#">
+                                        Share to Hacker News
+                                      </a>
+                                      <a target="_blank" class="d-block mb-2" rel="noopener" href="#">
+                                        Share to Facebook
+                                      </a>
+                                    </div>   
+                                    <a href="#" class="d-block">Share Post via...</a>
+                                    <a href="/report-abuse" class="d-block" >Report Abuse</a>
+                                  </div>
                             </div>
                         </div>
                     </div>
@@ -539,11 +570,11 @@
                     </section>
 
                     <!--Aquí empieza el trabajo rechy-->
-                    <section class="card read-all container p-1 p-md-5 mb-4">
+                    <section class="card read-all container p-2 p-md-5 mb-4">
                         <h2 class="read-title strong">Read next</h2>
                             <div class="d-flex justify-content-start align-items-center read-next-container">
                                 <div class="read-next rounded-circle">
-                                    <img loading="lazy" alt="meatboy profile image" class="crayons-avatar__image" width="100" height="100" src="https://res.cloudinary.com/practicaldev/image/fetch/s--8U3LE0lC--/c_imagga_scale,f_auto,fl_progressive,h_100,q_auto,w_100/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/267194/3db4562b-8873-4e13-be10-eee8e200422d.jpg">
+                                    <img src="./assets/images/avatars/avatar.png">
                                 </div>
                                 <div class="read-text p-3">
                                     <h3 class="strong">What is your GitHub profile? Share it there</h3>
@@ -552,7 +583,7 @@
                             </div>
                             <div class="d-flex justify-content-start align-items-center read-next-container">
                                 <div class="read-next rounded-circle">
-                                    <img loading="lazy" alt="westernal profile image" class="crayons-avatar__image" width="100" height="100" src="https://res.cloudinary.com/practicaldev/image/fetch/s--a1vPmWFD--/c_imagga_scale,f_auto,fl_progressive,h_100,q_auto,w_100/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/836282/50e54d5c-a871-4ba6-93eb-87ca7c9af46e.jpeg">
+                                    <img src="./assets/images/avatars/avatar.png">
                                 </div>
                                 <div class="read-text p-3">
                                     <h3 class="strong">What was your mistakes in your career path?</h3>
@@ -561,7 +592,7 @@
                             </div>
                             <div class="d-flex justify-content-start align-items-center read-next-container">
                                 <div class="read-next rounded-circle">
-                                    <img loading="lazy" alt="adrianlorenzo profile image" class="crayons-avatar__image" width="100" height="100" src="https://res.cloudinary.com/practicaldev/image/fetch/s--Ee_OzFop--/c_imagga_scale,f_auto,fl_progressive,h_100,q_auto,w_100/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/346739/bd87024c-d626-4dd7-af56-08888ef3bb55.jpg">
+                                    <img src="./assets/images/avatars/avatar.png">
                                 </div>
                                 <div class="read-text p-3">
                                     <h3 class="strong">Being a programmer</h3>
@@ -570,7 +601,7 @@
                             </div>
                             <div class="d-flex justify-content-start align-items-center read-next-container">
                                 <div class="read-next rounded-circle">
-                                    <img loading="lazy" alt="mattiaorfano profile image" class="crayons-avatar__image" width="100" height="100" src="https://res.cloudinary.com/practicaldev/image/fetch/s--bm7nkQWH--/c_imagga_scale,f_auto,fl_progressive,h_100,q_auto,w_100/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/876004/6e7114f3-1ea8-4728-9ffc-7049fec534f2.JPG">
+                                    <img src="./assets/images/avatars/avatar.png">
                                 </div>
                                 <div class="read-text p-3">
                                     <h3 class="strong">What is your favorite framework in HTML?</h3>
@@ -732,8 +763,7 @@
             </div>
     </footer>
 
-
-
+    <script src="./assets/js/main.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

@@ -203,6 +203,7 @@
     }    
     .reactions{      
         .reaction{
+            
             .reaction-button-like{
                 gap:4px;
                 align-items: center;
@@ -234,6 +235,25 @@
                     }                                   
                 }
             }
+            #article-show-more-dropdown {
+                display: none;
+                min-width: 250px;
+                /* width: 100%; */
+                position: absolute;
+                top: unset;
+                bottom: 100%;
+                z-index: 400;
+                left: 0;
+                right: 0;
+                background: white;
+                height: -webkit-fit-content;
+                height: -moz-fit-content;
+                height: fit-content;
+
+                #copy-url-button{
+                    width: 100%;
+                }
+            }
         }
     }
 }
@@ -249,10 +269,17 @@
         position: sticky;
         top: calc(#{$header-height} + 16px);     
         .reactions{
-            flex-direction: column;           
+            flex-direction: column;   
+                   
             .reaction{
+                position: relative; 
                 .reaction-button-like{
                     flex-direction: column;                   
+                }
+                #article-show-more-dropdown {
+                    top: 20px;
+                    left: 60px;                    
+                    
                 }
             }
             
