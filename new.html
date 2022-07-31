@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV Community</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://res.cloudinary.com/practicaldev/image/fetch/s--E8ak4Hr1--/c_limit,f_auto,fl_progressive,q_auto,w_32/https://dev-to.s3.us-east-2.amazonaws.com/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />         
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+    <header class="dev-header">
+        <nav class="navbar">
+            <div class="container align-items-center">
+                <div class="logo d-flex align-items-center d-none d-md-flex">                    
+                    <a class="navbar-brand p-0" href="index.html"><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png
+                    " alt=""></a>
+                    <span class="d-none d-md-block fw-bold">Create Post</span>                   
+                </div>  
+                
+                <div class="user d-flex align-items-end">
+                    <button class="btn btn-header-post">Edit</button>
+                    <button class="btn btn-header-post me-5">Preview</button>  
+                    
+                    <a href="./index.html" class="btn ms-5" title="Close the editor" aria-label="Close the editor">
+                        <svg class="crayons-icon c-btn__icon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.586 4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+                    </a>
+                </div>  
+                           
+            </div>            
+        </nav>
+    </header>
+    <div class="container p-3 container-main">
+        <div class="row">
+            <div class="col-12 col-md-1">
+                <aside class="aside-left">
+                    
+                </aside>
+            </div>            
+            <div class="col-12 col-md-11 col-lg-8">
+                <div class="post-editor">
+                    <div class="post-editor-title-container p-3">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="image-preview-container me-2">
+                                <img src="" id="preview-image" alt="" class="img-responsive img-cover-preview">
+                            </div>
+                            
+                            <label class="btn btn-cover-post">Add a cover image
+                                <input id="post-editor-cover" type="file" accept="image/*" class="d-none" data-max-file-size-mb="25">                                
+                            </label>
+                        </div>
+                        <input type="text" class="post-editor-title mb-3" placeholder="New post title here...">
+                    </div> 
+                    <textarea id="editor-content" class="post-editor-content" placeholder="Write your post content here..."></textarea>
+                </div>
+                <div class="result">
+
+                </div>
+                <div class="d-flex mt-3 align-items-center">
+                    <button type="button" class="btn btn-primary btn-publish-post me-2">Publish</button>
+                    <button type="button" class="btn btn-header-post me-2">Save <span class="hidden s:inline">draft</span></button>
+                    <div class="post-options-container">
+                        <button type="button" class="btn btn-header-post btn-open-options me-2" id="post-options-btn" title="Post options">
+                            <svg class="crayons-icon c-btn__icon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m12 1 9.5 5.5v11L12 23l-9.5-5.5v-11L12 1zm0 2.311L4.5 7.653v8.694l7.5 4.342 7.5-4.342V7.653L12 3.311zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z">
+
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="post-options-dropdown p-3 d-none">
+                            <h3 class="mb-6">Post options</h3>
+                            <div class="crayons-field mb-6">                                
+                                <label for="canonicalUrl" class="crayons-field__label">Canonical URL</label>
+                                <p class="crayons-field__description">Change meta tag <code>canonical_url</code> if this post was first published elsewhere (like your own blog).</p>
+                                <input type="text" class="form-control" placeholder="https://yoursite.com/post-title" name="canonicalUrl" id="canonicalUrl">
+                            </div>
+                            <div class="crayons-field mb-6">
+                                <label for="series" class="crayons-field__label">Series</label>
+                                <p class="crayons-field__description">Will this post be part of a series? Give the series a unique name. (Series visible once it has multiple posts)</p>
+                                <input type="text" class="form-control" name="series" id="series" placeholder="..."></div>
+                                <button type="button" class="btn btn-primary  mt-3" id="post-options-done-btn" data-content="exit">Done</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-header-post">Revert <span class="hidden s:inline">new changes</span></button>
+                    </div>
+            </div>
+            <div class="col-12 col-lg-3 d-none d-lg-block">
+                <aside class="aside-right detail-aside p-0 ps-md-5 ps-lg-0">
+                    <div class="help-post-title d-none">
+                        <div class="help-post">
+                            <h4 class="mb-2 fs-l">Writing a Great Post Title</h4>
+                            <ul class="list-disc pl-6 color-base-70">
+                                <li>Think of your post title as a super short (but compelling!) description — like an overview of the actual post in one short sentence.</li>
+                                <li>Use keywords where appropriate to help ensure people can find your post by search.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="help-post-content d-none">
+                        <div class="help-post">
+                            <h4 class="mb-2 fs-l">Editor Basics</h4>
+                            <ul class="list-disc pl-6 color-base-70">
+                                <li>Use <a href="#markdown">Markdown</a> to write and format posts.
+                                    <details class="fs-s my-1">
+                                        <summary class="cursor-pointer">Commonly used syntax</summary>
+                                        <table class="">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="ff-monospace"># Header<br>...<br>###### Header</td>
+                                                    <td>H1 Header<br>...<br>H6 Header</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">*italics* or _italics_</td>
+                                                    <td><em>italics</em></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">**bold**</td>
+                                                    <td><strong>bold</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">[Link](https://...)</td>
+                                                    <td><a href="https://forem.com">Link</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">* item 1<br>* item 2</td>
+                                                    <td>
+                                                        <ul class="list-disc ml-5">
+                                                            <li>item 1</li>
+                                                            <li>item 2</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">1. item 1<br>2. item 2</td>
+                                                    <td>
+                                                        <ul class="list-decimal ml-5">
+                                                            <li>item 1</li>
+                                                            <li>item 2</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">&gt; quoted text</td>
+                                                    <td><span class="pl-2 border-0 border-solid border-l-2 border-base-50">quoted text</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace">`inline code`</td>
+                                                    <td><code>inline code</code>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="ff-monospace"><span class="fs-xs">```</span><br>code block<br><span class="fs-xs">```</span></td>
+                                                    <td><div class="highlight p-2 overflow-hidden"><code>code block</code></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </details>
+                                </li>
+                                <li>Embed rich content such as Tweets, YouTube videos, etc. Use the complete URL: <code>{% embed https://... %}.</code> <a href="#liquid">See a list of supported embeds</a>.</li>
+                                <li>In addition to images for the post's content, you can also drag and drop a cover image.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>  
+    
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>    
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/create_post.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
