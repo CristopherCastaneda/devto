@@ -853,6 +853,12 @@ img {
   width: 100%;
 }
 
+.help-post-tags {
+  position: absolute;
+  top: 160px;
+  width: 100%;
+}
+
 .help-post-content {
   position: absolute;
   top: 250px;
@@ -904,7 +910,26 @@ img {
 }
 
 .fr-wrapper {
-  min-height: 400px;
+  min-height: 300px;
+}
+
+.fr-wrapper .fr-element.fr-view {
+  font-size: 18px;
+}
+
+.customSuggestionsList > div {
+  position: absolute;
+  max-height: 300px;
+  width: 50%;
+  border: 2px solid pink;
+  overflow: auto;
+  z-index: 400;
+}
+
+tags.tagify.post-tags {
+  width: 100%;
+  position: relative;
+  border: none;
 }
 
 body {

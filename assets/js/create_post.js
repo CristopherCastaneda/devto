@@ -20,6 +20,7 @@ let result = document.querySelector('.result');
 let cover = "";
 let helpTitle = document.querySelector(".help-post-title");
 let helpContent = document.querySelector(".help-post-content");
+let helpTags = document.querySelector(".help-post-tags");
 let postOptions = document.querySelector(".post-options-dropdown");
 
 //Froala Editor
@@ -30,16 +31,20 @@ let editor = new FroalaEditor('textarea#editor-content', {
         'focus': function () {
             helpTitle.classList.add("d-none");
             helpContent.classList.remove("d-none");
+            helpTags.classList.add("d-none");
         }
       }    
 });
 
 //! Eventos
+document.querySelector(".btn-cover-post").addEventListener("click", () =>{
+    btnImage.click();
+});
 btnImage.addEventListener("change", ()=>{
     //spinner
     document.querySelector(".btn-cover-post").innerHTML = `<div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>`;
+        <span class="visually-hidden">Loading...</span>
+    </div>`;
     uploadImage();
 });
 
@@ -55,9 +60,12 @@ document.querySelector(".btn-open-options").addEventListener("click", () => {
 document.querySelector(".post-editor-title").addEventListener('focus', () => {
     helpContent.classList.add("d-none");
     helpTitle.classList.remove("d-none");
+    helpTags.classList.add("d-none");
 });
 
 btnPublish.addEventListener("click" , (e) => {  
+
+    let tags = getTags(tagify.value);    
     let title = document.querySelector(".post-editor-title").value;
     let content = document.querySelector(".post-editor-content").value;
 
@@ -75,8 +83,9 @@ btnPublish.addEventListener("click" , (e) => {
             urlCoverImage: cover,
             author: 'Panda Rojo',
             createdDate: new Date().toLocaleDateString(),
-            mintoread: Math.ceil(editor.charCounter.count() / 180),
-            avatarAuthor: './assets/images/avatars/avatar.jpg'
+            mintoread: Math.ceil(editor.charCounter.count() / 200),
+            avatarAuthor: './assets/images/avatars/avatar.jpg',
+            tags: tags
         }       
         
         fetch('https://devtorocketg20-default-rtdb.firebaseio.com/posts.json', {method: "POST",body: JSON.stringify(newPost),headers: {"Content-type": "application/json; charset=UTF-8"}})
@@ -120,9 +129,44 @@ const uploadImage = () => {
       .then(url => {      
         cover = url;  
         document.querySelector("#preview-image").src = url;
-        document.querySelector(".btn-cover-post").innerHTML = `Change`;
+        document.querySelector(".btn-cover-post").textContent  = `Change`;
       })
       .catch(console.error);
 }
 
+/**
+ *Funcion para obtener tags de tagify en forma de array de strings 
+ * parametro: Array de objetos (tagify.value)
+ * retorno: Array de strings
+ */
+const getTags = (tagifyArr) => {
+    let tags = tagifyArr.map((tag) => {        
+        return tag.value
+    })
+    return tags;
+}
 
+
+/**
+ * Tagify
+ */
+ var inputTags = document.querySelector('input[name=tags-manual-suggestions]'),
+ // init Tagify script on the above inputs
+ tagify = new Tagify(inputTags, {
+     whitelist : [ "Apex (Salesforce.com)", "Assembly language", "ASP.NET", "Bash", "Batch (Windows/Dos)", "C++ ", "C/AL", "C#", "Java", "Javascript", "MATLAB", "CSS", "HTML", "Ruby"],
+     dropdown: {
+        maxItems: 100,           
+        classname: "tags-look", 
+        enabled: 1,             
+        closeOnSelect: false 
+      },
+     enforceWhitelist: false
+ });
+ tagify.DOM.input.addEventListener('focus', () => {
+    helpContent.classList.add("d-none");
+    helpTitle.classList.add("d-none");
+    helpTags.classList.remove("d-none");
+ });
+ 
+
+ 
