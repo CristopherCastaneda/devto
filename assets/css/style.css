@@ -280,8 +280,9 @@ img {
   font-size: 1.2rem;
 }
 
-/*.card .card-content{
-  padding-left: 36px;}*/
+.card .card-content {
+  /*padding-left: 36px;*/
+}
 
 .card .card-content .card-reactions {
   /*gap:10px;*/
@@ -551,7 +552,6 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  display: none;
 }
 
 #comments .comments-container .form-comments .form-comment-area .comment-form-toolbar button {
@@ -576,7 +576,6 @@ img {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  display: none;
 }
 
 #comments .comments-container .comment-form-buttons button {
@@ -619,7 +618,6 @@ img {
 
 #comments .btn-reaction.liked path {
   fill: #dc2626;
-  
 }
 
 #comments .comments-container .form-comment-area:focus-within ~ .comment-form-buttons, #comments .comments-container .form-comment-area:focus-within .comment-form-toolbar {
@@ -681,7 +679,6 @@ img {
 
 .reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.red path {
   fill: #dc2626;
-  
 }
 
 .reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.green {

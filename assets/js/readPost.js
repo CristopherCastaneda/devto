@@ -28,22 +28,24 @@ const printPosts = () => {
     console.log(posts)
     let template = "";
     let countPosts = 0;
-   
-    
+
+
     for (let post in posts) {
-        let imgPost="";
-        if(countPosts === 0){
-            imgPost =`<img src="${posts[post].urlCoverImage}" alt="main-image">`
+        let imgPost = "";
+        if (countPosts === 0) {
+            imgPost = `<img src="${posts[post].urlCoverImage}" alt="main-image">`
         }
-        let tags = "";  
-    if (posts[post].tags.length > 0) {
-        posts[post].tags.forEach((tag) => {
-            tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`
-        });
-    }
-    
+        let tags = "";
+        if ('tags' in posts[post]) {
+            if (posts[post].tags.length > 0) {
+                posts[post].tags.forEach((tag) => {
+                    tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`
+                });
+            }
+        }        
+
         template += `
-        <div class="card ${countPosts===0? "": "p-2 p-md-3 mt-3"}">
+        <div class="card ${countPosts === 0 ? "" : "p-2 p-md-3 mt-3"}">
         ${imgPost}
         <div class="card-body p-1 p-xl-3">
             <div class="d-flex align-items-center mb-3">
@@ -94,7 +96,7 @@ const printPosts = () => {
             </div>
         </div>
     </div>`;
-    countPosts++;
+        countPosts++;
     }
     return template;
 
@@ -102,7 +104,7 @@ const printPosts = () => {
 
 postRead.innerHTML = printPosts();
 
-// ! GET 
+// ! GET
 // let url =("https://devtorocketg20-default-rtdb.firebaseio.com/posts/.json")
 
 // fetch(url)
@@ -111,7 +113,7 @@ postRead.innerHTML = printPosts();
 //     return res.json()
 // })
 // .then((res)=>{
-//     // ? logica 
+//     // ? logica
 // })
 // .catch((error)=>{
 //     console.log(error)
