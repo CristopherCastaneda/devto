@@ -59,7 +59,7 @@
                         </div>
                     </a>
 
-                    <a href="#" class="d-none d-md-block btn-create-post mr-5">Create Post</a>
+                    <a href="./new.html" class="d-none d-md-block btn-create-post mr-5">Create Post</a>
 
                     <a class="tag-link" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"
@@ -72,6 +72,35 @@
                     <a href="#" class="user-menu p-1">
                         <img class="user-avatar" src="./assets/images/avatars/avatar.png" alt="">
                     </a>
+                    <div class="user-menu-popover p-2 d-none">
+                        <ul class="ps-0">
+                          <li class="border-bottom">
+                            <a href="/sofysha91" id="first-nav-link" class="c-link c-link--default c-link--block lh-tight">
+                              <div>
+                                <span class="d-block">Panda Rojo</span>
+                                <small>@theOnePandaRojo</small>
+                              </div>
+                            </a>
+                          </li>                    
+                         
+                          <li>
+                            <a href="#" class="c-link c-link--block">Dashboard</a>
+                          </li>
+                          <li>
+                            <a href="./new.html" class="c-link c-link--block">Create Post</a>
+                          </li>    
+                          <li>
+                            <a href="#" class="c-link c-link--block">Reading list</a>
+                          </li>
+                          <li class="border-bottom">
+                            <a href="#" class="c-link c-link--block" id="second-last-nav-link">Settings</a>
+                          </li>
+                      
+                          <li class="pt-2">
+                            <a href="/signout_confirm" class="c-link c-link--block" id="last-nav-link">Sign Out</a>
+                          </li>
+                        </ul>
+                      </div>
                 </div>
             </div>
             <div class="offcanvas offcanvas-start d-md-none custom-nav-off" tabindex="-1" id="offcanvasNavbar"
@@ -288,7 +317,7 @@
                                 </button>
                             </div>
                             <div class="reaction d-flex">
-                                <button class="btn reaction-button-like d-flex" data-category="like" title="Heart">
+                                <button class="btn reaction-button-like btn-reaction-more d-flex" data-category="like" title="Heart">
                                     <div class="svg-container rounded-circle">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" role="img"
                                             aria-labelledby="acpt207yp24sfeobeggdtc9b3ehlk8qv" aria-hidden="true"
@@ -300,7 +329,7 @@
                                         </svg>
                                     </div>
                                 </button>
-                                <div id="article-show-more-dropdown" class="p-3 m-1">
+                                <div id="article-show-more-dropdown" class="p-3 m-1 d-none">
                                     <div>
                                       <button id="copy-url-button" class="d-flex justify-content-between border-0 bg-transparent p-0 mb-2" data-posturl="https://dev.to/devteam/what-was-your-win-this-week-1ee2">
                                         <span class="fw-bold">Copy link</span>
@@ -308,7 +337,11 @@
                                             <path d="M7 6V3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 013 21l.003-14c0-.552.45-1 1.007-1H7zm2 0h8v10h2V4H9v2zm-2 5v2h6v-2H7zm0 4v2h6v-2H7z"></path>
                                         </svg>                            
                                       </button>
-                                      <div id="article-copy-link-announcer" aria-live="polite" class="crayons-notice crayons-notice--success my-2 p-1" hidden="">Copied to Clipboard</div>
+                                      <div id="article-copy-link-announcer" class="d-none">
+                                        <div class="alert alert-success" role="alert">
+                                           Copied to Clipboard
+                                        </div>
+                                      </div>
                                     </div>
                             
                                     <div class="show-more-links">
@@ -724,6 +757,8 @@
             </div>
     </footer>
 
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/reactions.js"></script>
     <script src="./assets/js/detailPots.js"></script>
     
     <!-- JavaScript Bundle with Popper -->
