@@ -1,6 +1,6 @@
-//Funcion de click en las reacciones  falta hacer que se guarden en el post de seleccion y no se borren.
-const dateFormatOptions = { month: 'short', day: 'numeric' };
 
+const dateFormatOptions = { month: 'short', day: 'numeric' };
+//Funcion de click en las reacciones  falta hacer que se guarden en el post de seleccion y no se borren.
 // const increment = document.querySelector("#heart");
 // const count = document.querySelector("#reaction-Heart");
 
