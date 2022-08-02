@@ -9,10 +9,10 @@ const firebaseConfig = {
     appId: "1:922740208168:web:e073479da552b0f27ebb1d"
   };
 
-// Inicializaz Firebase
+// Firebase Init
 firebase.initializeApp(firebaseConfig);
 
-//Decalaracion de variables
+// Var declaration
 let btnPublish = document.querySelector(".btn-publish-post");
 let postBody = document.querySelector("#editor-content");
 let btnImage = document.querySelector("#post-editor-cover");
@@ -36,7 +36,7 @@ let editor = new FroalaEditor('textarea#editor-content', {
       }    
 });
 
-//! Eventos
+//! Events
 document.querySelector(".btn-cover-post").addEventListener("click", () =>{
     btnImage.click();
 });
@@ -56,7 +56,7 @@ document.querySelector(".btn-open-options").addEventListener("click", () => {
     toggle(postOptions, "d-none");
 });
 
-// Eventos para mostrar los side help
+// help elements display
 document.querySelector(".post-editor-title").addEventListener('focus', () => {
     helpContent.classList.add("d-none");
     helpTitle.classList.remove("d-none");
@@ -84,7 +84,7 @@ btnPublish.addEventListener("click" , (e) => {
             author: 'Panda Rojo',
             createdDate: new Date().toLocaleDateString(),
             mintoread: Math.ceil(editor.charCounter.count() / 200),
-            avatarAuthor: './assets/images/avatars/avatar.jpg',
+            avatarAuthor: './assets/images/avatars/avatar.png',
             tags: tags
         }       
         
@@ -111,7 +111,7 @@ btnPublish.addEventListener("click" , (e) => {
 
 //! Functions
 /**
- *  Funcion para subir image cover a Firebase Storage, imprime cover en img tag 
+ *  Function to load image on Firebase Storage
  *  */
 const uploadImage = () => {
     const ref = firebase.storage().ref();
@@ -135,13 +135,13 @@ const uploadImage = () => {
 }
 
 /**
- *Funcion para obtener tags de tagify en forma de array de strings 
- * parametro: Array de objetos (tagify.value)
- * retorno: Array de strings
+ * Get tagify tags
+ * params:  (tagify.value)
+ * return: new array of tags
  */
 const getTags = (tagifyArr) => {
     let tags = tagifyArr.map((tag) => {        
-        return tag.value
+        return tag.value;
     })
     return tags;
 }
@@ -162,6 +162,7 @@ const getTags = (tagifyArr) => {
       },
      enforceWhitelist: false
  });
+
  tagify.DOM.input.addEventListener('focus', () => {
     helpContent.classList.add("d-none");
     helpTitle.classList.add("d-none");

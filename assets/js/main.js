@@ -1,9 +1,9 @@
 let userMenu = document.querySelector(".user-menu");
 
-//! Funciones
+//! Functions
 
 /**
- * Funcion para toggle de clases
+ * Toggle Class
  */
  const toggle = (selector, toggleClass ) => {
     if (selector.classList.contains(toggleClass)) {
@@ -13,8 +13,10 @@ let userMenu = document.querySelector(".user-menu");
       }
 }
 
-userMenu.addEventListener("click", (event) => {
-  event.preventDefault();
-  toggle(document.querySelector(".user-menu-popover"), "d-none");
-});
 
+if(userMenu != null){
+  userMenu.addEventListener("click", (event) => {
+    event.preventDefault();
+    toggle(document.querySelector(".user-menu-popover"), "d-none");    
+  });
+}

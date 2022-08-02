@@ -1,4 +1,4 @@
-// Declaracion de variables
+// Var declarations
 let moreMenu = document.querySelector("#article-show-more-dropdown");
 let btnCopy = document.querySelector("#copy-url-button");
 
@@ -12,3 +12,4 @@ btnCopy.addEventListener("click", (event) => {
     navigator.clipboard.writeText(btnCopy.dataset.posturl);
     document.querySelector("#article-copy-link-announcer").classList.remove("d-none");
 });
+
