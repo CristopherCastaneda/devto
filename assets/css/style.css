@@ -280,9 +280,8 @@ img {
   font-size: 1.2rem;
 }
 
-.card .card-content {
-  /*padding-left: 36px;*/
-}
+/*.card .card-content{
+  padding-left: 36px;}*/
 
 .card .card-content .card-reactions {
   /*gap:10px;*/

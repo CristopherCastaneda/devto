@@ -1,40 +1,41 @@
 //Funcion de click en las reacciones  falta hacer que se guarden en el post de seleccion y no se borren.
+const dateFormatOptions = { month: 'short', day: 'numeric' };
 
-const increment = document.querySelector("#heart");
-const count = document.querySelector("#reaction-Heart");
+// const increment = document.querySelector("#heart");
+// const count = document.querySelector("#reaction-Heart");
 
-increment.addEventListener("click", () => {
-    count.innerText = Number(count.innerText) + 1;
-    if (count.innerText > 1) {
-        count.innerText = 0;
-        return count
-    };
-});
+// increment.addEventListener("click", () => {
+//     count.innerText = Number(count.innerText) + 1;
+//     if (count.innerText > 1) {
+//         count.innerText = 0;
+//         return count
+//     };
+// });
 
-const incrementU = document.querySelector("#unicorn");
-const countU = document.querySelector("#reaction-Unicorn");
-
-
-incrementU.addEventListener("click", () => {
-    countU.innerText = Number(countU.innerText) + 1;
-    if (countU.innerText > 1) {
-        countU.innerText = 0;
-        return countU
-    };
-});
+// const incrementU = document.querySelector("#unicorn");
+// const countU = document.querySelector("#reaction-Unicorn");
 
 
-const incrementS = document.querySelector("#save");
-const countS = document.querySelector("#reaction-save");
+// incrementU.addEventListener("click", () => {
+//     countU.innerText = Number(countU.innerText) + 1;
+//     if (countU.innerText > 1) {
+//         countU.innerText = 0;
+//         return countU
+//     };
+// });
 
 
-incrementS.addEventListener("click", () => {
-    countS.innerText = Number (countS.innerText) + 1;
-    if (countS.innerText > 1) {
-        countS.innerText = 0;
-        return countS
-    };
-});
+// const incrementS = document.querySelector("#save");
+// const countS = document.querySelector("#reaction-save");
+
+
+// incrementS.addEventListener("click", () => {
+//     countS.innerText = Number (countS.innerText) + 1;
+//     if (countS.innerText > 1) {
+//         countS.innerText = 0;
+//         return countS
+//     };
+// });
 
 
 // aqui termina la funcion
@@ -43,67 +44,8 @@ incrementS.addEventListener("click", () => {
 
 
 //nuevo parte
-let params = new URLSearchParams(window.location.search)
-let postId = params.get('id')
 
-console.log(postId)
-
-let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`
-console.log(url)
-
-//! Hacer el request con el metdoo get del post selccionado y isertarla en mi template 
-
-console.log(url)
-
-let cardHolder = document.querySelector('.detailPost')
-
-document.addEventListener("DOMContentLoaded", (e) => {
-    let result = getPosts(url)
-
-    console.log(result)
-    detailPost.innerHTML =
-        `
-        <div class="d-flex align-items-center mb-3">
-                                <div class="main-profile">
-                                    <img class="rounded-circle" src="./assets/images/avatars/meowth.png" alt="profile">
-                                </div>
-                                <div class="mx-2 profile-name">
-                                    <a href="" class="text-decoration-none">${result.author}</a>
-                                    <p class="post-date m-0">Jun 16 (4 days Ago)</p>
-                                </div>
-                            </div>
-                            <div class=" card-content p-0">
-                                <h1>What was your win this week?</h1>
-                                <div class="d-flex">
-                                    <a href="#" class="card-link text-decoration-none">#nuevo modulo</a>
-                                    <a href="#" class="card-link text-decoration-none">#weekly</a>
-                                    <a href="#" class="card-link text-decoration-none">#enjoy</a>
-                                </div>
-                            </div>
-                            <div class="card-post pt-4">
-
-                                <p>Hey there! </p>
-                                <p>Looking back on this past week, what was something you were proud of accomplishing?
-                                </p>
-
-                                <p>All wins count — big or small 🎉</p>
-                                <p>Examples of 'wins' include:</p>
-
-                                <ul>
-                                    <li>Starting a new project</li>
-                                    <li>Fixing a tricky bug</li>
-                                    <li>Attending CodeLand... or whatever else might spark joy ❤️ </li>
-                                </ul>
-
-                                <p>Have a wonderful weekend!</p>
-                                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--vIJLV2gv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/knom1otmggk9ehl57bot.gif"
-                                    alt="Elmo dancing around in a party hat over a blue background" loading="lazy"
-                                    width="600" height="450" data-animated="true" id="animated-0" class="ff-image">
-                            </div>`
-
-})
-
-const getPosts = (url) => {
+const getDetailPost = (url) => {
     let posts = [];
     const postRequest = new XMLHttpRequest();
 
@@ -125,3 +67,117 @@ const getPosts = (url) => {
     postRequest.send();
     return posts;
 }
+let params = new URLSearchParams(window.location.search);
+let postId = params.get('id');
+console.log()
+
+let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`
+console.log(url)
+
+//! Hacer el request con el metdoo get del post selccionado y isertarla en mi template 
+
+console.log(url)
+
+let detailPost = document.querySelector('#detailPostView')
+document.addEventListener("DOMContentLoaded", (e) => {
+    let posts = getDetailPost(url);
+    let tags="";
+    if(posts.tags.length>0){
+    posts.tags.forEach((tag)=>{
+        tags +=`<a href="#" class="card-link text-decoration-none">#${tag}</a>`   
+        })
+    }
+    detailPost.innerHTML =
+        `
+        <img src="${posts.urlCoverImage}" alt="main-image">
+        <div class="card-body p-3 p-md-5 ">
+        <div class="d-flex align-items-center mb-3">
+                                <div class="main-profile">
+                                    <img class="rounded-circle" src="${posts.avatarAuthor}" alt="profile">
+                                </div>
+                                <div class="mx-2 profile-name">
+                                    <a href="" class="text-decoration-none">${posts.author}</a>
+                                    <p class="post-date m-0">${new Date(posts.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
+                                </div>
+                            </div>
+                            <div class=" card-content p-0">
+                                <h1>${posts.title}</h1>
+                                <div class="d-flex">
+                                  ${tags}  
+                                </div>
+                            </div>
+                            <div class="card-post pt-4">
+                                ${posts.content}
+                            </div>
+                            </div>`
+})
+
+//section del perfil card
+let profileDetailPost = document.querySelector('#profileDetailPost')
+document.addEventListener("DOMContentLoaded", (e) => {
+    let posts = getDetailPost(url);
+    let tags="";
+    if(posts.tags.length>0){
+    posts.tags.forEach((tag)=>{
+        tags +=`<a href="#" class="card-link text-decoration-none">#${tag}</a>`   
+        })
+    }
+    profileDetailPost.innerHTML =
+        `
+        <div class="card-border"></div>
+                        <div class="card-body p-3 pt-0">
+                            <div class="mt-n4">
+                                <a href="#" class="d-flex align-items-end">
+                                    <div class="card-profile-avatar">
+                                        <img src="${posts.avatarAuthor}" class="avatar" alt="">
+                                    </div>
+                                    <span class="card-profile-name">${posts.author}</span>
+                                </a>
+                            </div>
+                            <div class="btn-follow-container mt-4">
+                                <button name="button" type="button" class="btn btn-follow border-0">Follow</button>
+                            </div>
+                            <div class="card-profile-title mt-4">
+                                Software Engineer, Pokemon Master at <strong>Team Rocket</strong>
+                            </div>
+                            <div class="user-details-container">
+                                <ul class="user-details">
+                                    <li>
+                                        <div class="key">
+                                            Location
+                                        </div>
+                                        <div class="value">
+                                            Kanto
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="key">
+                                            Education
+                                        </div>
+                                        <div class="value">
+                                            Life University
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="key">
+                                            Work
+                                        </div>
+                                        <div class="value">
+                                            Software Engineer at <strong>Team Rocket</strong>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="key">
+                                            Joined
+                                        </div>
+                                        <div class="value">
+                                            <time class="date">Jan 01, 2020</time>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>`
+})
+
+
+

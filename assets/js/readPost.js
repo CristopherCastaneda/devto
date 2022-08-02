@@ -1,6 +1,4 @@
-//Read Post New in the home.
-
-const result = document.querySelector("#pills-tabContent");
+const postRead = document.querySelector("#pills-home")
 
 const getPosts = (url) => {
     let posts = [];
@@ -27,11 +25,26 @@ const getPosts = (url) => {
 
 const printPosts = () => {
     let posts = getPosts("https://devtorocketg20-default-rtdb.firebaseio.com/posts/.json");
+    console.log(posts)
     let template = "";
-       for (let post in posts) {
-        console.log(post)
+    let countPosts = 0;
+   
+    
+    for (let post in posts) {
+        let imgPost="";
+        if(countPosts === 0){
+            imgPost =`<img src="${posts[post].urlCoverImage}" alt="main-image">`
+        }
+        let tags = "";  
+    if (posts[post].tags.length > 0) {
+        posts[post].tags.forEach((tag) => {
+            tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`
+        });
+    }
+    
         template += `
-        <div class="card p-2 p-md-3 mt-3">
+        <div class="card ${countPosts===0? "": "p-2 p-md-3 mt-3"}">
+        ${imgPost}
         <div class="card-body p-1 p-xl-3">
             <div class="d-flex align-items-center mb-3">
                 <div class="main-profile">
@@ -44,11 +57,9 @@ const printPosts = () => {
                 </div>
             </div>
             <div class="card-content p-0 ps-md-5">
-                <h3><a href="detail.html">${posts[post].title}</a></h3>
+                <h3><a href="detail.html?id=${post}">${posts[post].title}</a></h3>
                 <div class="d-flex my-3">
-                    <a href="#" class="card-link text-decoration-none">#code</a>
-                    <a href="#" class="card-link text-decoration-none">#discuss</a>
-                    <a href="#" class="card-link text-decoration-none">#programming</a>
+                ${tags}
                 </div>
                 <div class="main-icons d-flex justify-content-between mb-3">
                     <div class="d-flex justify-content-between card-reactions">
@@ -71,7 +82,7 @@ const printPosts = () => {
                                         d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
                                     </path>
                                 </svg>
-                                36 <span class="d-none d-md-block">comments</span>
+                                0<span class="d-none d-md-block">comments</span>
                             </a>
                         </div>
                     </div>
@@ -83,23 +94,30 @@ const printPosts = () => {
             </div>
         </div>
     </div>`;
-}
- return template;
+    countPosts++;
+    }
+    return template;
+
 }
 
-result.innerHTML = printPosts();
+postRead.innerHTML = printPosts();
 
 // ! GET 
-let url =("https://devtorocketg20-default-rtdb.firebaseio.com/posts/.json")
+// let url =("https://devtorocketg20-default-rtdb.firebaseio.com/posts/.json")
 
-fetch(url)
-.then((res)=>{
-    console.log(res)
-    return res.json()
-})
-.then((res)=>{
-    // ? logica 
-})
-.catch((error)=>{
-    console.log(error)
-})
+// fetch(url)
+// .then((res)=>{
+//     console.log(res)
+//     return res.json()
+// })
+// .then((res)=>{
+//     // ? logica 
+// })
+// .catch((error)=>{
+//     console.log(error)
+// })
+
+// let tagHTML = tags.reduce((html, tag) => {
+//     html += `<span class="badge bg-primary me-2">${tag}</span>`;
+//     return html;
+// }, "");
