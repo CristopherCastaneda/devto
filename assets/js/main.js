@@ -45,10 +45,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let savedPost = getUserSavedPosts();
   
   let reading = document.querySelectorAll(".bg-reading");
-  console.log(reading)
+  
   if (reading != null) {
     for (var i = 0; i < reading.length; i++) {
-      console.log(reading[i])
       reading[i].innerHTML = savedPost.length;
     }
   }

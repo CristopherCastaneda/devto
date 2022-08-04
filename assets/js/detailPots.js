@@ -74,17 +74,32 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     let posts = getDetailPost(url);
     let tags = "";
+    let editPost= posts.author;
+    
+    let btnEditPost="";
+    if(editPost=="Panda Rojo") {
+        
+        btnEditPost += `<div class="btnEditPost">
+                            <a href="./editPost.html?id=${postId}" class="btn px-2">Edit</a>
+                            <button type="button" class="btn btn-danger px-2 btn-delete-post">Delete</button>
+                            <a href="" class="btn px-2">stat</a>
+                        </div>`;
+    } 
+     
     if ('tags' in posts) {
         if (posts.tags.length > 0) {
-            posts.tags.forEach((tag) => {
-                tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`;
-            })
+            tags += `<div class="d-flex">`;
+            posts.tags.forEach((tag) => {               
+                tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`;                
+            });
+            tags += "</div>";
         }
     }
     detailPost.innerHTML =
         `
-        ${posts.urlCoverImage != "" ? '<img src="' + posts.urlCoverImage + '" alt="main-image">' : ""}
+        ${posts.urlCoverImage == '' ? "" : '<img src="' + posts.urlCoverImage + '" alt="main-image">' }        
         <div class="card-body p-3 p-md-5 ">
+        <div class="d-flex justify-content-between mb-3">
             <div class="d-flex align-items-center mb-3">
                 <div class="main-profile">
                     <img class="rounded-circle" src="${posts.avatarAuthor}" alt="profile">
@@ -93,10 +108,16 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     <a href="" class="text-decoration-none">${posts.author}</a>
                     <p class="post-date m-0">${new Date(posts.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
                 </div>
+                
+        </div>
+            <div>
+                ${btnEditPost}
             </div>
+                </div>
+            
             <div class="card-content p-0">
                 <h1>${posts.title}</h1>
-                <div class="d-flex">
+                <div>
                     ${tags}
                 </div>
             </div>
@@ -114,6 +135,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
     //Read next functionality
     readNext();
     document.querySelector("#copy-url-button").dataset.posturl = window.location;
+
+    let btnDeletePost = document.querySelector(".btn-delete-post");
+
+    if (btnDeletePost != null) {
+        btnDeletePost.addEventListener("click", () => {
+            let response = confirm("Are you sure you want to delete this article?\n You cannot undo this action");
+            if (response) {
+                fetch(url, { method: "DELETE", headers: { "Content-type": "application/json; charset=UTF-8" } })
+                    .then((res) => {
+                        return res.json();
+                    }).then((res) => {
+                        setTimeout(
+                            function () {
+                                window.location = "/index.html"
+                            },
+                            1500);
+                    }).catch((error) => {
+                        console.log(error)
+                    });
+            }
+        });
+    }
 });
 
 let updateProfile = (photo, name) =>{

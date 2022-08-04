@@ -296,3 +296,19 @@
         }
     }
 }
+
+.btnEditPost{    
+    align-items: center;
+    justify-content: space-around;
+
+        .btn{ 
+            background-color: rgba(245, 159, 11, 0.1);
+            border: 0;
+            &:hover{
+                background-color: #717171;
+                border: 0;
+            }
+        }
+    
+}
+    

@@ -26,11 +26,11 @@ btnSaveComments.addEventListener("click", (e) => {
     e.preventDefault();
     let params = new URLSearchParams(window.location.search);
     let postID = params.get('id');
-    let comment = comment.value;
+    let commentValue = comment.value;
 
     const newComment = {
         author : getRandomName(),
-        content: comment,
+        content: commentValue,
         date: new Date().toLocaleDateString()        
     }    
 
