@@ -947,3 +947,10 @@ a {
   text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
+.btnEditPost{
+background-color: rgba(245, 159, 11, 0.1);
+align-items: center;
+border-radius: 0.375rem;
+padding: 0.25rem;
+justify-content: space-around;
+}
