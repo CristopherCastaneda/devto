@@ -1,4 +1,5 @@
 let userMenu = document.querySelector(".user-menu");
+const dateFormatOptions = { month: 'short', day: 'numeric' };
 
 //! Functions
 

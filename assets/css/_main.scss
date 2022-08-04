@@ -115,6 +115,11 @@ img{
     background-color: rgb(212, 212,212) !important;
 }
 
+a.aside-navigation-link.selected {
+    background-color: white;
+    border-radius: 8px;
+}
+
 /*Responsive*/
 @media only screen and (min-width:767px)
 {

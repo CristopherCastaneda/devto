@@ -80,7 +80,7 @@ const printPosts = (posts) => {
                 </div>
                 <div class="mx-2 profile-name p-1">
                     <a href="" class="text-decoration-none">${post.author}</a>
-                    <p class="post-date my-0">${post.createdDate}</p>
+                    <p class="post-date my-0">${new Date(post.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
                 </div>
             </div>
             <div class="card-content p-0 ps-md-5">
@@ -153,7 +153,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 const savePost = (savedPost, postID, event) => {
     console.log(savedPost)
     if(savedPost.includes(postID)){
-        delete savedPost[savedPost.indexOf(postID)]
+        //delete savedPost[savedPost.indexOf(postID)]
+        var index = savedPost.indexOf(postID);
+        if (index !== -1) {
+            savedPost.splice(index, 1);
+        }
         event.target.innerHTML = "Save";
     }
     else{

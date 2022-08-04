@@ -84,7 +84,7 @@ btnPublish.addEventListener("click" , (e) => {
             content: content,
             urlCoverImage: cover,
             author: 'Panda Rojo',
-            createdDate: new Date().toLocaleDateString(),
+            createdDate: new Date(),
             mintoread: Math.ceil(editor.charCounter.count() / 200),
             avatarAuthor: './assets/images/avatars/avatar.png',
             tags: tags

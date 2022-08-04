@@ -1,4 +1,3 @@
-const dateFormatOptions = { month: 'short', day: 'numeric' };
 let params = new URLSearchParams(window.location.search);
 let postId = params.get('id');
 
