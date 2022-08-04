@@ -394,6 +394,10 @@ img {
   text-decoration: underline;
 }
 
+.bg-reading {
+  background-color: #d4d4d4 !important;
+}
+
 /*Responsive*/
 @media only screen and (min-width: 767px) {
   .offcanvas-backdrop.show {
@@ -477,6 +481,14 @@ img {
 
 .profile-name p.post-date {
   font-size: 12px;
+}
+
+#detailPostView h1 {
+  font-size: 3rem;
+}
+
+#detailPostView .card-post {
+  font-size: 20px;
 }
 
 /*Comments*/
@@ -779,7 +791,7 @@ img {
 
 .read-all .read-next-container .read-next {
   overflow: hidden;
-  height: 3.5rem;
+  height: auto;
   width: 3.5rem;
 }
 
@@ -799,7 +811,7 @@ img {
 /*Responsive*/
 @media only screen and (min-width: 767px) {
   .read-all .read-next-container .read-next {
-    height: 4rem;
+    height: auto;
     width: 4rem;
   }
 }

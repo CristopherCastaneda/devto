@@ -1,5 +1,10 @@
-
 const dateFormatOptions = { month: 'short', day: 'numeric' };
+let params = new URLSearchParams(window.location.search);
+let postId = params.get('id');
+
+let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`;
+let detailPost = document.querySelector('#detailPostView');
+
 //Funcion de click en las reacciones  falta hacer que se guarden en el post de seleccion y no se borren.
 // const increment = document.querySelector("#heart");
 // const count = document.querySelector("#reaction-Heart");
@@ -40,11 +45,7 @@ const dateFormatOptions = { month: 'short', day: 'numeric' };
 
 // aqui termina la funcion
 
-//!evento de visualizacion del detail post
-
-
-//nuevo parte
-
+//! Post Detail
 const getDetailPost = (url) => {
     let posts = [];
     const postRequest = new XMLHttpRequest();
@@ -67,18 +68,10 @@ const getDetailPost = (url) => {
     postRequest.send();
     return posts;
 }
-let params = new URLSearchParams(window.location.search);
-let postId = params.get('id');
 
-let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`;
-
-
-//! Hacer el request con el metdoo get del post selccionado y isertarla en mi template 
-
-console.log(url)
-
-let detailPost = document.querySelector('#detailPostView')
+/* Document Load*/
 document.addEventListener("DOMContentLoaded", (e) => {
+
     let posts = getDetailPost(url);
     let tags = "";
     if ('tags' in posts) {
@@ -90,7 +83,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
     detailPost.innerHTML =
         `
-        <img src="${posts.urlCoverImage}" alt="main-image">
+        ${posts.urlCoverImage != "" ? '<img src="' + posts.urlCoverImage + '" alt="main-image">' : ""}
         <div class="card-body p-3 p-md-5 ">
             <div class="d-flex align-items-center mb-3">
                 <div class="main-profile">
@@ -101,7 +94,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     <p class="post-date m-0">${new Date(posts.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
                 </div>
             </div>
-            <div class=" card-content p-0">
+            <div class="card-content p-0">
                 <h1>${posts.title}</h1>
                 <div class="d-flex">
                     ${tags}
@@ -118,10 +111,58 @@ document.addEventListener("DOMContentLoaded", (e) => {
         printComments(posts.comments);
     }
 
-})
+    //Read next functionality
+    readNext();
+    document.querySelector("#copy-url-button").dataset.posturl = window.location;
+});
 
 let updateProfile = (photo, name) =>{
     document.querySelector("#profileDetailPost .avatar").src = photo;
     document.querySelector(".card-profile-name").innerHTML = name;
     document.querySelector("#profile-name").innerHTML =  name;
+}
+
+/*Read next*/
+const readNext = () => {
+    fetch(`https://devtorocketg20-default-rtdb.firebaseio.com/posts.json`)
+    .then((res)=>{
+            return res.json();
+    }).then((res)=>{
+        //print read Next
+        printReadNext(res);
+    }).catch((error)=>{
+        console.log(error);      
+    });
+}
+
+const printReadNext = (posts) => {
+    let template = "";
+    let ids = Object.keys(posts);
+    let usedId = [];
+    
+    while(usedId.length < 4)
+    {
+        //get random number
+        let randomIndex = Math.floor(Math.random() * ids.length);
+        
+        if(ids[randomIndex] != postId && !usedId.includes(randomIndex))
+        {
+            //get post and print
+            template += `
+            <a href="detail.html?id=${ids[randomIndex]}">
+                <div class="d-flex justify-content-start align-items-center read-next-container">
+                    <div class="read-next rounded-circle">
+                        <img src="${posts[ids[randomIndex]].avatarAuthor}">
+                    </div>
+                    <div class="read-text p-3">
+                        <h3 class="strong">${posts[ids[randomIndex]].title}</h3>
+                        <p>${posts[ids[randomIndex]].author} ${new Date(posts[ids[randomIndex]].createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
+                    </div>
+                </div>
+            </a>`;
+            usedId.push(randomIndex);
+        }        
+    }
+    document.querySelector("#container-readnext").innerHTML = template;   
+
 }
