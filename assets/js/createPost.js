@@ -100,7 +100,7 @@ btnPublish.addEventListener("click" , (e) => {
                     </div>`;
                     setTimeout(
                         function(){
-                            window.location = `detail.html?id?${res.name}` 
+                            window.location = `detail.html?id=${res.name}` 
                         },
                     1500);
         }).catch((error)=>{

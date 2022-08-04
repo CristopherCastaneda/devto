@@ -65,6 +65,15 @@
     }
 }
 
+#detailPostView{
+    h1{
+        font-size: 3rem;        
+    }
+    .card-post{
+        font-size: 20px;
+    }
+}
+
 /*Comments*/
 #comments{
     h2{
@@ -288,15 +297,18 @@
     }
 }
 
-.btnEditPost{
-    background-color: rgba(245, 159, 11, 0.1);
+.btnEditPost{    
     align-items: center;
-    border-radius: 0.375rem;
-    padding: 0.25rem;
     justify-content: space-around;
-    &:hover{
-    background-color: #717171;
-    }
+
+        .btn{ 
+            background-color: rgba(245, 159, 11, 0.1);
+            border: 0;
+            &:hover{
+                background-color: #717171;
+                border: 0;
+            }
+        }
     
-    }
+}
     

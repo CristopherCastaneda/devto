@@ -9,6 +9,7 @@ commentForm.addEventListener("click", () => {
     document.querySelector(".comment-form-toolbar").classList.remove("d-none");
     document.querySelector(".comment-form-buttons").classList.remove("d-none");
 });
+
 comment.addEventListener("input", (event) => {
     console.log(comment.value)
     if(comment.value != null && comment.value != ""){
@@ -25,11 +26,11 @@ btnSaveComments.addEventListener("click", (e) => {
     e.preventDefault();
     let params = new URLSearchParams(window.location.search);
     let postID = params.get('id');
-    let comment = comment.value;
+    let commentValue = comment.value;
 
     const newComment = {
         author : getRandomName(),
-        content: comment,
+        content: commentValue,
         date: new Date().toLocaleDateString()        
     }    
 
@@ -54,6 +55,7 @@ btnSaveComments.addEventListener("click", (e) => {
  */
 
 const printComments = (comments) => {
+    let count = 0;
     let template = "";
     for(let idComment in comments) {
         template += `
@@ -95,8 +97,10 @@ const printComments = (comments) => {
             </div>
         </div>
         `;
+        count ++;
     }  
     commentsContainer.innerHTML = template; 
+    document.querySelector(".comments-count").innerHTML = `(${count})`;
 }
 
 function getRandomName(){
