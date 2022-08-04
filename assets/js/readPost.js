@@ -1,3 +1,4 @@
+/*
 const postRead = document.querySelector("#pills-home")
 
 const getPosts = (url) => {
@@ -120,4 +121,4 @@ postRead.innerHTML = printPosts();
 // let tagHTML = tags.reduce((html, tag) => {
 //     html += `<span class="badge bg-primary me-2">${tag}</span>`;
 //     return html;
-// }, "");
+// }, "");*/
