@@ -1,5 +1,10 @@
-
 const dateFormatOptions = { month: 'short', day: 'numeric' };
+let params = new URLSearchParams(window.location.search);
+let postId = params.get('id');
+
+let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`;
+let detailPost = document.querySelector('#detailPostView');
+
 //Funcion de click en las reacciones  falta hacer que se guarden en el post de seleccion y no se borren.
 // const increment = document.querySelector("#heart");
 // const count = document.querySelector("#reaction-Heart");
@@ -40,11 +45,7 @@ const dateFormatOptions = { month: 'short', day: 'numeric' };
 
 // aqui termina la funcion
 
-//!evento de visualizacion del detail post
-
-
-//nuevo parte
-
+//! Post Detail
 const getDetailPost = (url) => {
     let posts = [];
     const postRequest = new XMLHttpRequest();
@@ -67,117 +68,144 @@ const getDetailPost = (url) => {
     postRequest.send();
     return posts;
 }
-let params = new URLSearchParams(window.location.search);
-let postId = params.get('id');
-console.log()
 
-let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`
-console.log(url)
-
-//! Hacer el request con el metdoo get del post selccionado y isertarla en mi template 
-
-console.log(url)
-
-let detailPost = document.querySelector('#detailPostView')
+/* Document Load*/
 document.addEventListener("DOMContentLoaded", (e) => {
+
     let posts = getDetailPost(url);
-    let tags="";
-    if(posts.tags.length>0){
-    posts.tags.forEach((tag)=>{
-        tags +=`<a href="#" class="card-link text-decoration-none">#${tag}</a>`   
-        })
+    let tags = "";
+    let editPost= posts.author;
+    
+    let btnEditPost="";
+    if(editPost=="Panda Rojo") {
+        
+        btnEditPost += `<div class="btnEditPost">
+                            <a href="./editPost.html?id=${postId}" class="btn px-2">Edit</a>
+                            <button type="button" class="btn btn-danger px-2 btn-delete-post">Delete</button>
+                            <a href="" class="btn px-2">stat</a>
+                        </div>`;
+    } 
+     
+    if ('tags' in posts) {
+        if (posts.tags.length > 0) {
+            tags += `<div class="d-flex">`;
+            posts.tags.forEach((tag) => {               
+                tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`;                
+            });
+            tags += "</div>";
+        }
     }
     detailPost.innerHTML =
         `
-        <img src="${posts.urlCoverImage}" alt="main-image">
+        ${posts.urlCoverImage == '' ? "" : '<img src="' + posts.urlCoverImage + '" alt="main-image">' }        
         <div class="card-body p-3 p-md-5 ">
-        <div class="d-flex align-items-center mb-3">
-                                <div class="main-profile">
-                                    <img class="rounded-circle" src="${posts.avatarAuthor}" alt="profile">
-                                </div>
-                                <div class="mx-2 profile-name">
-                                    <a href="" class="text-decoration-none">${posts.author}</a>
-                                    <p class="post-date m-0">${new Date(posts.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
-                                </div>
-                            </div>
-                            <div class=" card-content p-0">
-                                <h1>${posts.title}</h1>
-                                <div class="d-flex">
-                                  ${tags}  
-                                </div>
-                            </div>
-                            <div class="card-post pt-4">
-                                ${posts.content}
-                            </div>
-                            </div>`
-})
-
-//section del perfil card
-let profileDetailPost = document.querySelector('#profileDetailPost')
-document.addEventListener("DOMContentLoaded", (e) => {
-    let posts = getDetailPost(url);
-    let tags="";
-    if(posts.tags.length>0){
-    posts.tags.forEach((tag)=>{
-        tags +=`<a href="#" class="card-link text-decoration-none">#${tag}</a>`   
-        })
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex align-items-center mb-3">
+                <div class="main-profile">
+                    <img class="rounded-circle" src="${posts.avatarAuthor}" alt="profile">
+                </div>
+                <div class="mx-2 profile-name">
+                    <a href="" class="text-decoration-none">${posts.author}</a>
+                    <p class="post-date m-0">${new Date(posts.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
+                </div>
+                
+        </div>
+            <div>
+                ${btnEditPost}
+            </div>
+                </div>
+            
+            <div class="card-content p-0">
+                <h1>${posts.title}</h1>
+                <div>
+                    ${tags}
+                </div>
+            </div>
+            <div class="card-post pt-4">
+                ${posts.content}
+            </div>
+        </div>
+        `;
+    //Update profile
+    updateProfile(posts.avatarAuthor, posts.author);
+    if ('comments' in posts) {
+        printComments(posts.comments);
     }
-    profileDetailPost.innerHTML =
-        `
-        <div class="card-border"></div>
-                        <div class="card-body p-3 pt-0">
-                            <div class="mt-n4">
-                                <a href="#" class="d-flex align-items-end">
-                                    <div class="card-profile-avatar">
-                                        <img src="${posts.avatarAuthor}" class="avatar" alt="">
-                                    </div>
-                                    <span class="card-profile-name">${posts.author}</span>
-                                </a>
-                            </div>
-                            <div class="btn-follow-container mt-4">
-                                <button name="button" type="button" class="btn btn-follow border-0">Follow</button>
-                            </div>
-                            <div class="card-profile-title mt-4">
-                                Software Engineer, Pokemon Master at <strong>Team Rocket</strong>
-                            </div>
-                            <div class="user-details-container">
-                                <ul class="user-details">
-                                    <li>
-                                        <div class="key">
-                                            Location
-                                        </div>
-                                        <div class="value">
-                                            Kanto
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="key">
-                                            Education
-                                        </div>
-                                        <div class="value">
-                                            Life University
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="key">
-                                            Work
-                                        </div>
-                                        <div class="value">
-                                            Software Engineer at <strong>Team Rocket</strong>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="key">
-                                            Joined
-                                        </div>
-                                        <div class="value">
-                                            <time class="date">Jan 01, 2020</time>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>`
-})
 
+    //Read next functionality
+    readNext();
+    document.querySelector("#copy-url-button").dataset.posturl = window.location;
 
+    let btnDeletePost = document.querySelector(".btn-delete-post");
 
+    if (btnDeletePost != null) {
+        btnDeletePost.addEventListener("click", () => {
+            let response = confirm("Are you sure you want to delete this article?\n You cannot undo this action");
+            if (response) {
+                fetch(url, { method: "DELETE", headers: { "Content-type": "application/json; charset=UTF-8" } })
+                    .then((res) => {
+                        return res.json();
+                    }).then((res) => {
+                        setTimeout(
+                            function () {
+                                window.location = "/index.html"
+                            },
+                            1500);
+                    }).catch((error) => {
+                        console.log(error)
+                    });
+            }
+        });
+    }
+});
+
+let updateProfile = (photo, name) =>{
+    document.querySelector("#profileDetailPost .avatar").src = photo;
+    document.querySelector(".card-profile-name").innerHTML = name;
+    document.querySelector("#profile-name").innerHTML =  name;
+}
+
+/*Read next*/
+const readNext = () => {
+    fetch(`https://devtorocketg20-default-rtdb.firebaseio.com/posts.json`)
+    .then((res)=>{
+            return res.json();
+    }).then((res)=>{
+        //print read Next
+        printReadNext(res);
+    }).catch((error)=>{
+        console.log(error);      
+    });
+}
+
+const printReadNext = (posts) => {
+    let template = "";
+    let ids = Object.keys(posts);
+    let usedId = [];
+    
+    while(usedId.length < 4)
+    {
+        //get random number
+        let randomIndex = Math.floor(Math.random() * ids.length);
+        
+        if(ids[randomIndex] != postId && !usedId.includes(randomIndex))
+        {
+            //get post and print
+            template += `
+            <a href="detail.html?id=${ids[randomIndex]}">
+                <div class="d-flex justify-content-start align-items-center read-next-container">
+                    <div class="read-next rounded-circle">
+                        <img src="${posts[ids[randomIndex]].avatarAuthor}">
+                    </div>
+                    <div class="read-text p-3">
+                        <h3 class="strong">${posts[ids[randomIndex]].title}</h3>
+                        <p>${posts[ids[randomIndex]].author} ${new Date(posts[ids[randomIndex]].createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
+                    </div>
+                </div>
+            </a>`;
+            usedId.push(randomIndex);
+        }        
+    }
+    document.querySelector("#container-readnext").innerHTML = template;   
+
+}

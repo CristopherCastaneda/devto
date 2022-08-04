@@ -13,7 +13,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Var declaration
-let btnPublish = document.querySelector(".btn-publish-post");
+let btnPublish = document.querySelector("#btnPublish");
 let postBody = document.querySelector("#editor-content");
 let btnImage = document.querySelector("#post-editor-cover");
 let result = document.querySelector('.result');
@@ -63,6 +63,8 @@ document.querySelector(".post-editor-title").addEventListener('focus', () => {
     helpTags.classList.add("d-none");
 });
 
+if(btnPublish!=null){
+
 btnPublish.addEventListener("click" , (e) => {  
 
     let tags = getTags(tagify.value);    
@@ -98,7 +100,7 @@ btnPublish.addEventListener("click" , (e) => {
                     </div>`;
                     setTimeout(
                         function(){
-                            window.location = `detail.html?id?${res.name}` 
+                            window.location = `detail.html?id=${res.name}` 
                         },
                     1500);
         }).catch((error)=>{
@@ -108,7 +110,7 @@ btnPublish.addEventListener("click" , (e) => {
         });
     }
 });
-
+}
 //! Functions
 /**
  *  Function to load image on Firebase Storage
