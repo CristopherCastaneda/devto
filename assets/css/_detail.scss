@@ -65,6 +65,15 @@
     }
 }
 
+#detailPostView{
+    h1{
+        font-size: 3rem;        
+    }
+    .card-post{
+        font-size: 20px;
+    }
+}
+
 /*Comments*/
 #comments{
     h2{
@@ -118,7 +127,6 @@
                     justify-content: space-between;
                     border-top: 1px solid #d6d6d7;
                     align-items: center;
-                    display: none;
                     button{
                         font-size: 12px;
                         color: #646464;
@@ -136,8 +144,7 @@
         .comment-form-buttons{
             gap:10px;
             display: flex;
-            justify-content: flex-start;
-            display: none;          
+            justify-content: flex-start;         
             button{
                 padding: 8px 16px;
                 &.btn-submit{
@@ -218,6 +225,7 @@
                             background-color: $reaction-liked;
                             path{
                                 fill: $red;
+                                
                             }
                         }
                         &.green{
@@ -236,7 +244,6 @@
                 }
             }
             #article-show-more-dropdown {
-                display: none;
                 min-width: 250px;
                 /* width: 100%; */
                 position: absolute;
@@ -249,6 +256,9 @@
                 height: -webkit-fit-content;
                 height: -moz-fit-content;
                 height: fit-content;
+                border: 1px solid $border-button;
+                box-shadow: rgba(0, 0, 0, 0.01) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px, rgba(0, 0, 0, 0.01) 0px 0px 0px 1px;
+                border-radius: 8px;        
 
                 #copy-url-button{
                     width: 100%;
@@ -286,3 +296,19 @@
         }
     }
 }
+
+.btnEditPost{    
+    align-items: center;
+    justify-content: space-around;
+
+        .btn{ 
+            background-color: rgba(245, 159, 11, 0.1);
+            border: 0;
+            &:hover{
+                background-color: #717171;
+                border: 0;
+            }
+        }
+    
+}
+    

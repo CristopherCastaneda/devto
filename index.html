@@ -59,7 +59,7 @@
                         </div>
                     </a>
 
-                    <a href="#" class="d-none d-md-block btn-create-post mr-5">Create Post</a>
+                    <a href="./new.html" class="d-none d-md-block btn-create-post mr-5">Create Post</a>
 
                     <a class="tag-link" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"
@@ -72,6 +72,35 @@
                     <a href="#" class="user-menu p-1">
                         <img class="user-avatar" src="./assets/images/avatars/avatar.png" alt="">
                     </a>
+                    <div class="user-menu-popover p-2 d-none">
+                        <ul class="ps-0">
+                          <li class="border-bottom">
+                            <a href="/sofysha91" id="first-nav-link" class="c-link c-link--default c-link--block lh-tight">
+                              <div>
+                                <span class="d-block">Panda Rojo</span>
+                                <small>@theOnePandaRojo</small>
+                              </div>
+                            </a>
+                          </li>                    
+                         
+                          <li>
+                            <a href="#" class="c-link c-link--block">Dashboard</a>
+                          </li>
+                          <li>
+                            <a href="./new.html" class="c-link c-link--block">Create Post</a>
+                          </li>    
+                          <li>
+                            <a href="#" class="c-link c-link--block">Reading list</a>
+                          </li>
+                          <li class="border-bottom">
+                            <a href="#" class="c-link c-link--block" id="second-last-nav-link">Settings</a>
+                          </li>
+                      
+                          <li class="pt-2">
+                            <a href="/signout_confirm" class="c-link c-link--block" id="last-nav-link">Sign Out</a>
+                          </li>
+                        </ul>
+                      </div>
                 </div>
             </div>
             <div class="offcanvas offcanvas-start custom-nav-off d-md-none" tabindex="-1" id="offcanvasNavbar"
@@ -99,7 +128,7 @@
                                     <span>
                                         <img src="./assets/images/icons/reading_list.png" alt="">
                                     </span>
-                                    Reading List
+                                    Reading List <span class="ms-2 badge bg-secondary text-dark bg-reading"></span>
                                 </a>
                             </li>
                             <li>
@@ -253,11 +282,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="aside-navigation-link">
+                                <a href="/readingList.html" class="aside-navigation-link d-flex align-items-center">
                                     <span>
                                         <img src="./assets/images/icons/reading_list.png" alt="">
                                     </span>
-                                    Reading List
+                                    Reading List <span class="ms-2 badge bg-secondary text-dark bg-reading"></span>
                                 </a>
                             </li>
                             <li>
@@ -490,524 +519,13 @@
                           </ul>
                           <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-                                <div class="card">
-                                    <img src="./assets/images/banner.png" alt="main-image">
-                                    <div class="card-body p-2 p-md-3 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle" src="./assets/images/avatars/meowth.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name">
-                                                <a href="" class="text-decoration-none">Meowth</a>
-                                                <p class="post-date m-0">Jun 16 (4 days Ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">What was your win this week?</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#weekly</a>
-                                                <a href="#" class="card-link text-decoration-none">#enjoy</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="card-reactions-detail text-decoration-none">
-                                                        <svg class="crayons-icon" width="24" height="24"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                            </path>
-                                                        </svg>
-                                                        75 <span class="d-none d-md-block">reactions</span>
-                                                    </a>
-                                                    <a href="" class="card-reactions-detail text-decoration-none"><svg
-                                                            class="crayons-icon" width="24" height="24"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                            </path>
-                                                        </svg>
-                                                        29 <span class="d-none d-md-block">comments</span>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Other posts-->
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle" src="./assets/images/avatars/mariana.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Mariana Rechy</a>
-                                                <p class="post-date my-0">Jun 20 (3 hours ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Motivation vs Discipline</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#code</a>
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#programming</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            12 <span class="d-none d-md-block">reaction</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg
-                                                                class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            36 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle" src="./assets/images/avatars/cristo.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Alan Castañeda</a>
-                                                <p class="post-date my-0">Jun 20 (9 hours ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Day 1 of #100DaysOfCode</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#code</a>
-                                                <a href="#" class="card-link text-decoration-none">#vscode</a>
-                                                <a href="#" class="card-link text-decoration-none">#newbie</a>
-                                                <a href="#" class="card-link text-decoration-none">#software</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            28 <span class="d-none d-md-block">reactions</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg
-                                                                class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            52 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle" src="./assets/images/avatars/kelly.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Kelly e. Ramirez</a>
-                                                <p class="post-date my-0">Jun 19 (1 day ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">How to deal with errors while coding</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#programming</a>
-                                                <a href="#" class="card-link text-decoration-none">#code</a>
-                                                <a href="#" class="card-link text-decoration-none">#productivity</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            41 <span class="d-none d-md-block">reactions</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg
-                                                                class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            3 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle" src="./assets/images/avatars/sofy.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Sofy Hernandez</a>
-                                                <p class="post-date my-0">Jun 18 (2 days ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Which songs do you prefer while coding?</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#programming</a>
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#weekly</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            29 <span class="d-none d-md-block">reactions</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg
-                                                                class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            11 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">8 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle" src="./assets/images/avatars/jesus.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Jesus</a>
-                                                <p class="post-date my-0">Jun 16 (4 days ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">You need to be a Programmer!</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#programming</a>
-                                                <a href="#" class="card-link text-decoration-none">#newbie</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            31 <span class="d-none d-md-block">reactions</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg
-                                                                class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            2 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">8 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                                <div class="card">
-                                    <img src="./assets/images/flower.png"
-                                        alt="main-image">
-                                    <div class="card-body p-2 p-md-3 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle"
-                                                    src="./assets/images/avatars/kelly.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name">
-                                                <a href="" class="text-decoration-none">Kelly Ramirez</a>
-                                                <p class="post-date m-0">Jun 16 (4 days Ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Hello World!</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#weekly</a>
-                                                <a href="#" class="card-link text-decoration-none">#enjoy</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="card-reactions-detail text-decoration-none">
-                                                        <svg class="crayons-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                            </path>
-                                                        </svg>
-                                                        75 <span class="d-none d-md-block">reactions</span>
-                                                    </a>
-                                                    <a href="" class="card-reactions-detail text-decoration-none"><svg class="crayons-icon" width="24" height="24"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                            </path>
-                                                        </svg>
-                                                        29 <span class="d-none d-md-block">comments</span>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Other posts-->
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle"
-                                                    src="./assets/images/avatars/mariana.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Mariana Rechy</a>
-                                                <p class="post-date my-0">Jun 20 (3 hours ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Motivation vs Discipline</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#code</a>
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#programming</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            12 <span class="d-none d-md-block">reaction</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg class="crayons-icon" width="24"
-                                                                height="24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            36 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                                <div class="card">
-                                    <img src="./assets/images/candidate.png"
-                                        alt="main-image">
-                                    <div class="card-body p-2 p-md-3 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle"
-                                                    src="./assets/images/avatars/cristo.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name">
-                                                <a href="" class="text-decoration-none">Alan Cristopher</a>
-                                                <p class="post-date m-0">Jun 16 (4 days Ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Hello from the other tab!</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#weekly</a>
-                                                <a href="#" class="card-link text-decoration-none">#enjoy</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="card-reactions-detail text-decoration-none">
-                                                        <svg class="crayons-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                            </path>
-                                                        </svg>
-                                                        75 <span class="d-none d-md-block">reactions</span>
-                                                    </a>
-                                                    <a href="" class="card-reactions-detail text-decoration-none"><svg class="crayons-icon" width="24" height="24"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                            </path>
-                                                        </svg>
-                                                        29 <span class="d-none d-md-block">comments</span>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Other posts-->
-                                <div class="card p-2 p-md-3 mt-3">
-                                    <div class="card-body p-1 p-xl-3">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="main-profile">
-                                                <img class="rounded-circle"
-                                                    src="./assets/images/avatars/sofy.png"
-                                                    alt="profile">
-                                            </div>
-                                            <div class="mx-2 profile-name p-1">
-                                                <a href="" class="text-decoration-none">Sofy Hernandez</a>
-                                                <p class="post-date my-0">Jun 20 (3 hours ago)</p>
-                                            </div>
-                                        </div>
-                                        <div class="card-content p-0 ps-md-5">
-                                            <h3><a href="detail.html">Motivation vs Discipline</a></h3>
-                                            <div class="d-flex my-3">
-                                                <a href="#" class="card-link text-decoration-none">#code</a>
-                                                <a href="#" class="card-link text-decoration-none">#discuss</a>
-                                                <a href="#" class="card-link text-decoration-none">#programming</a>
-                                            </div>
-                                            <div class="main-icons d-flex justify-content-between mb-3">
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none">
-                                                            <svg class="crayons-icon" width="24" height="24"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z">
-                                                                </path>
-                                                            </svg>
-                                                            12 <span class="d-none d-md-block">reaction</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-reactions-detail">
-                                                        <a href="" class="text-decoration-none"><svg class="crayons-icon" width="24"
-                                                                height="24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z">
-                                                                </path>
-                                                            </svg>
-                                                            36 <span class="d-none d-md-block">comments</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between card-reactions">
-                                                    <a href="" class="text-decoration-none me-2">3 min read</a>
-                                                    <button class="btn btn-secondary">Save</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                           </div>
                     </div>
@@ -1145,6 +663,8 @@
     </footer>
 
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/readPost.js"></script>
+    
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
