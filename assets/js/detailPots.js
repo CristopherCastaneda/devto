@@ -69,7 +69,7 @@ const getDetailPost = (url) => {
 }
 let params = new URLSearchParams(window.location.search);
 let postId = params.get('id');
-
+console.log(postId)
 let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`;
 
 
@@ -81,10 +81,20 @@ let detailPost = document.querySelector('#detailPostView')
 document.addEventListener("DOMContentLoaded", (e) => {
     let posts = getDetailPost(url);
     let tags = "";
+    let editPost= posts.author;
+    
+    let btnEditPost="";
+    if(editPost=="Panda Rojo") {
+        
+        btnEditPost += `<a href="./editPost.html?id=${postId}" class="crayons-btn crayons-btn--s crayons-btn--ghost px-2">Edit</a>
+                <a href="" class="crayons-btn crayons-btn--s crayons-btn--ghost px-2">Manage</a>
+                <a href="" class="crayons-btn crayons-btn--s crayons-btn--ghost px-2">stats</a>`
+    } 
+    
     if ('tags' in posts) {
         if (posts.tags.length > 0) {
             posts.tags.forEach((tag) => {
-                tags += `<a href="#" class="card-link text-decoration-none">#${tag}</a>`;
+                tags += `<div class="class="d-flex btnEditPost""><a href="#" class="card-link text-decoration-none">#${tag}</a>`;
             })
         }
     }
@@ -92,6 +102,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         `
         <img src="${posts.urlCoverImage}" alt="main-image">
         <div class="card-body p-3 p-md-5 ">
+        <div class="d-flex justify-content-between mb-3">
             <div class="d-flex align-items-center mb-3">
                 <div class="main-profile">
                     <img class="rounded-circle" src="${posts.avatarAuthor}" alt="profile">
@@ -100,10 +111,16 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     <a href="" class="text-decoration-none">${posts.author}</a>
                     <p class="post-date m-0">${new Date(posts.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
                 </div>
+                
+        </div>
+        <div class="btnEditPost mb-4 s:mb-0">
+                ${btnEditPost}
             </div>
+                </div>
+            
             <div class=" card-content p-0">
                 <h1>${posts.title}</h1>
-                <div class="d-flex">
+                <div>
                     ${tags}
                 </div>
             </div>
