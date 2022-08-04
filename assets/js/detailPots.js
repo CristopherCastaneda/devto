@@ -3,6 +3,7 @@ let postId = params.get('id');
 
 let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`;
 let detailPost = document.querySelector('#detailPostView');
+let savedReaction = document.querySelector(".reaction-button-save");
 
 //Funcion de click en las reacciones  falta hacer que se guarden en el post de seleccion y no se borren.
 // const increment = document.querySelector("#heart");
@@ -41,8 +42,6 @@ let detailPost = document.querySelector('#detailPostView');
 //     };
 // });
 
-
-// aqui termina la funcion
 
 //! Post Detail
 const getDetailPost = (url) => {
@@ -156,6 +155,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
             }
         });
     }
+
+    /*Saved*/
+    let savedPost = getUserSavedPosts();
+    if(savedPost.includes(postId)){
+        savedReaction.classList.add("active");
+        document.querySelector(".path-saved").classList.remove("d-none");
+        document.querySelector("#reaction-save").innerHTML = 1;
+    }
+    
 });
 
 let updateProfile = (photo, name) =>{
@@ -208,3 +216,27 @@ const printReadNext = (posts) => {
     document.querySelector("#container-readnext").innerHTML = template;   
 
 }
+
+//! Events
+savedReaction.addEventListener("click", (event) => {
+    toggle(savedReaction, "active");
+    toggle(document.querySelector(".path-saved"), "d-none");
+
+    let savedPost = getUserSavedPosts();
+
+    //remove/add from saved list
+    if(savedPost.includes(postId)){
+        //delete savedPost[savedPost.indexOf(postID)]
+        var index = savedPost.indexOf(postId);
+        if (index !== -1) {
+            savedPost.splice(index, 1);
+        }
+        document.querySelector("#reaction-save").innerHTML = 0;
+    }
+    else{
+        savedPost.push(postId);
+        document.querySelector("#reaction-save").innerHTML = 1;
+    }
+    // Patch
+    updateUser(savedPost);
+});

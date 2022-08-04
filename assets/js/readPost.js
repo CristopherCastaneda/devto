@@ -147,38 +147,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
 });
 
-/**
- * Save Post functionality
- */
-const savePost = (savedPost, postID, event) => {
-    console.log(savedPost)
-    if(savedPost.includes(postID)){
-        //delete savedPost[savedPost.indexOf(postID)]
-        var index = savedPost.indexOf(postID);
-        if (index !== -1) {
-            savedPost.splice(index, 1);
-        }
-        event.target.innerHTML = "Save";
-    }
-    else{
-        savedPost.push(postID);
-        event.target.innerHTML = "Saved";
-    }
-    // Patch
-    updateUser(savedPost);
-}
-
-const updateUser = (saved) => {
-    const user = {
-        saved: saved
-    }    
-    fetch('https://devtorocketg20-default-rtdb.firebaseio.com/users/-N8aKUfGWMxVfZEePuh2.json', {method: "PATCH",body: JSON.stringify(user),headers: {"Content-type": "application/json; charset=UTF-8"}})
-    .then((res)=>{
-            return res.json();
-    }).then((res)=>{
-            console.log(res);
-    }).catch((error)=>{
-        console.log(error);      
-    });
-}
-

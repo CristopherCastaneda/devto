@@ -206,7 +206,8 @@
     box-shadow: 0 -1px 5px $reaction-hover;
     border-radius: 8px 8px 0 0;
     .svg-container{ 
-        padding: .5rem;        
+        padding: .5rem;
+        border: 3px solid transparent;         
     }    
     .reactions{      
         .reaction{
@@ -215,12 +216,15 @@
                 gap:4px;
                 align-items: center;
                 border: 0;
+                box-sizing: border-box;
+                  
                 span.reaction-count {
                     font-size: 14px;
                 }
                 &:hover{
                     .svg-container{
-                        background-color: $reaction-hover;    
+                        background-color: $reaction-hover;
+                        border: 3px solid transparent;    
                         &.red{
                             background-color: $reaction-liked;
                             path{
@@ -241,6 +245,16 @@
                             }
                         }
                     }                                   
+                }
+                &.reaction-button-save.active{
+                   
+                    .rounded-circle{                        
+                        border: 3px solid $blue;
+                        path{
+                            fill: $blue;
+                        }
+                    }
+                    
                 }
             }
             #article-show-more-dropdown {

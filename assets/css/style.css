@@ -672,6 +672,7 @@ a.aside-navigation-link.selected {
 
 .reactions-left-container .svg-container {
   padding: .5rem;
+  border: 3px solid transparent;
 }
 
 .reactions-left-container .reactions .reaction .reaction-button-like {
@@ -680,6 +681,8 @@ a.aside-navigation-link.selected {
       -ms-flex-align: center;
           align-items: center;
   border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .reactions-left-container .reactions .reaction .reaction-button-like span.reaction-count {
@@ -688,6 +691,7 @@ a.aside-navigation-link.selected {
 
 .reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container {
   background-color: rgba(0, 0, 0, 0.035);
+  border: 3px solid transparent;
 }
 
 .reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.red {
@@ -712,6 +716,14 @@ a.aside-navigation-link.selected {
 
 .reactions-left-container .reactions .reaction .reaction-button-like:hover .svg-container.blue path {
   fill: #4f46e5;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like.reaction-button-save.active .rounded-circle {
+  border: 3px solid #3b49df;
+}
+
+.reactions-left-container .reactions .reaction .reaction-button-like.reaction-button-save.active .rounded-circle path {
+  fill: #3b49df;
 }
 
 .reactions-left-container .reactions .reaction #article-show-more-dropdown {
