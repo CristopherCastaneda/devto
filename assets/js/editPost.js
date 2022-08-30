@@ -2,12 +2,6 @@ params = new URLSearchParams(window.location.search)
 let postIdDetail = params.get('id')
 let btnEdit = document.querySelector("#editPostBtn");
 
-//! Events
-// document.querySelector(".btn-cover-post").addEventListener("click", () =>{
-//     btnImage.click();
-   
-// });
-
 btnImage.addEventListener("change", ()=>{
     //spinner
     document.querySelector(".btn-cover-post").innerHTML = `<div class="spinner-border text-primary" role="status">
@@ -16,85 +10,80 @@ btnImage.addEventListener("change", ()=>{
     uploadImage();
 });
 
-document.querySelector(".cursor-pointer").addEventListener("click", () => {
-    toggle(helpContent, "top-0");
-});
+btnEdit.addEventListener("click", async (e) => { 
+    try{
+        let tags = getTags(tagify.value);    
+        let title = document.querySelector(".post-editor-title").value;
+        let content = quill.root.innerHTML;
 
-document.querySelector(".btn-open-options").addEventListener("click", () => {
-    toggle(postOptions, "d-none");
-});
+        if( title == '' || content == '')
+        {        
+            result.innerHTML = `<div class="alert alert-danger" role="alert">
+                Los campos no pueden estar vacios.
+            </div>`;
+        }
+        else{
+            //Create post object
+            const newPost = {
+                post_title: title,
+                post_body: content,
+                post_banner: cover,
+                post_date: new Date(),
+                tags: tags,            
+                read_time: Math.ceil(quill.getText().length / 200)                           
 
-// help elements display
-document.querySelector(".post-editor-title").addEventListener('focus', () => {
-    helpContent.classList.add("d-none");
-    helpTitle.classList.remove("d-none");
-    helpTags.classList.add("d-none");
-});
-
-btnEdit.addEventListener("click", (e) => { 
-
-    let tags = getTags(tagify.value);    
-    let title = document.querySelector(".post-editor-title").value;
-    let content = document.querySelector(".post-editor-content").value;
-
-    if( title == '' || content == '')
-    {        
-        result.innerHTML = `<div class="alert alert-danger" role="alert">
-            Los campos no pueden estar vacios.
-        </div>`;
+            }   
+            //Save Post
+            const responsePost = await fetch(`${APIURL}post/${postIdDetail}`, {
+                method: "PATCH",
+                headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(newPost)
+            });
+            
+            const post = await responsePost.json();
+            result.innerHTML =  `<div class="alert alert-success" role="alert">
+                            El formulario ha sido enviado
+                        </div>`;
+            setTimeout(
+                function(){
+                    window.location = `detail.html?id=${post.data.post._id}` 
+                },
+            1500);
+        }
     }
-    else{
-        //Create post object
-        const newPost = {
-            title: title,
-            content: content,
-            urlCoverImage: cover,
-            author: 'Panda Rojo',
-            createdDate: new Date().toLocaleDateString(),
-            mintoread: Math.ceil(editor.charCounter.count() / 200),
-            avatarAuthor: './assets/images/avatars/avatar.png',
-            tags: tags
-        }       
-        
-        
-        
-        fetch(`https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postIdDetail}.json`, {method: "PATCH",body: JSON.stringify(newPost),headers: {"Content-type": "application/json; charset=UTF-8"}})
-        .then((res)=>{
-                return res.json();
-        }).then((res)=>{
-                console.log(res.name);
-                result.innerHTML =  `<div class="alert alert-success" role="alert">
-                        El formulario ha sido Editado
-                    </div>`;
-                    setTimeout(
-                        function(){
-                            window.location = `detail.html?id=${postIdDetail}` 
-                        },
-                    1500);
-        }).catch((error)=>{
-            result.innerHTML =  `<div class="alert alert-danger" role="alert">
-            Ocurrio un error. ${error}
-        </div>`;      
-        });
+    catch(error){
+        console.log(error);
+        result.innerHTML =  `<div class="alert alert-danger" role="alert">
+                Ocurrio un error. ${error}
+            </div>`;
     }
 });
-document.addEventListener("DOMContentLoaded", (e) => { 
+document.addEventListener("DOMContentLoaded", async (e) => { 
     
-    let url = `https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postIdDetail}.json`
+    try{
+        const response = await fetch(`${APIURL}post/${postIdDetail}`, {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json"
+            }
+        });
+        
+        const posts = await response.json();          
+        let post = posts.data.post;
 
-    fetch(url)
-    .then((res)=>{
-            return res.json();
-    }).then((post)=>{
-        document.getElementById("preview-image").src =post.urlCoverImage;        
-          document.querySelector(".post-editor-title").value = post.title;
-          editor.html.insert(post.content);
-          if('tags'in post){
+        document.getElementById("preview-image").src =post.post_banner;        
+        document.querySelector(".post-editor-title").value = post.post_title;
+        quill.root.innerHTML = post.post_body;
+        if('tags'in post){
           inputTags.value=post.tags;
         }
-    }).catch((error)=>{
-        console.log(error);      
-    });
+    }
+    catch(error){
+        console.log(error);
+    }   
 
 });
 

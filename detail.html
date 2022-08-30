@@ -31,11 +31,11 @@
                     </button>
                     <a class="navbar-brand p-0" href="index.html"><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png
                     " alt=""></a>
-                    <form class="d-none d-md-flex search">
+                    <div class="d-none d-md-flex search">
                         <div class="input-group">
-                            <input type="text" class="form-control border-end-0" placeholder="Search..."
+                            <input type="text" id="input-desktop-search" class="form-control border-end-0" placeholder="Search..."
                                 aria-label="search" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="btn-desktop-search">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     aria-hidden="true" class="crayons-icon c-btn__icon" focusable="false">
                                     <path
@@ -44,7 +44,7 @@
                                 </svg>
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="user d-flex align-items-center">
                     <a class="n-link p-1 d-inline-block d-md-none" href="#">
@@ -52,35 +52,41 @@
                         <label for="cbSearch"><img src="./assets/images/icons/search.png" alt=""></label>
                         <div class="search-box" id="search-box-container">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." aria-label="search"
-                                    aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                <input  id="input-mobile-search" type="text" class="form-control" placeholder="Search..." aria-label="search">
+                                <button class="btn btn-outline-secondary" type="button" id="btn-mobile-search">
                                     <img src="./assets/images/icons/search.png" alt="">
                                 </button>
                             </div>
                         </div>
                     </a>
 
-                    <a href="./new.html" class="d-none d-md-block btn-create-post mr-5">Create Post</a>
+                    <div class="user-login d-flex align-items-center">
+                        <a href="./login.html" class="d-none d-md-block btn-login me-3 ">Log in</a>
+                        <a href="./createAccount.html" class="d-none d-md-block btn-create-post mr-5">Create Account</a>
+                    </div>
+                    
+                    <div class="user-logged d-flex align-items-center">
+                        <a href="./new.html" class="d-none d-md-block btn-create-post me-2">Create Post</a>
 
-                    <a class="tag-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"
-                            aria-labelledby="aq9w3ozou4pmtnc15rroryctxmvrbt5k" class="crayons-icon">
-                            <title id="aq9w3ozou4pmtnc15rroryctxmvrbt5k">Notifications</title>
-                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1116 0v7zm-2 0v-7a6 6 0 10-12 0v7h12zm-9 4h6v2H9v-2z">
-                            </path>
-                        </svg>
-                    </a>
-                    <a href="#" class="user-menu p-1">
-                        <img class="user-avatar" src="./assets/images/avatars/avatar.png" alt="">
-                    </a>
+                        <a class="tag-link me-2" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"
+                                aria-labelledby="aq9w3ozou4pmtnc15rroryctxmvrbt5k" class="crayons-icon">
+                                <title id="aq9w3ozou4pmtnc15rroryctxmvrbt5k">Notifications</title>
+                                <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1116 0v7zm-2 0v-7a6 6 0 10-12 0v7h12zm-9 4h6v2H9v-2z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="user-menu p-1">
+                            <img class="user-avatar rounded-circle" src="" alt="">
+                        </a>
+                    </div>
                     <div class="user-menu-popover p-2 d-none">
                         <ul class="ps-0">
                           <li class="border-bottom">
-                            <a href="/sofysha91" id="first-nav-link" class="c-link c-link--default c-link--block lh-tight">
+                            <a href="#" id="first-nav-link" class="c-link c-link--default c-link--block lh-tight">
                               <div>
-                                <span class="d-block">Panda Rojo</span>
-                                <small>@theOnePandaRojo</small>
+                                <span class="d-block user-name-display">Panda Rojo</span>
+                                <small class="user-name-user">@theOnePandaRojo</small>
                               </div>
                             </a>
                           </li>                    
@@ -99,10 +105,10 @@
                           </li>
                       
                           <li class="pt-2">
-                            <a href="/signout_confirm" class="c-link c-link--block" id="last-nav-link">Sign Out</a>
+                            <a href="#" class="c-link c-link--block btn-sign-out" id="last-nav-link">Sign Out</a>
                           </li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
             </div>
             <div class="offcanvas offcanvas-start d-md-none custom-nav-off" tabindex="-1" id="offcanvasNavbar"
@@ -447,18 +453,13 @@
                             <a href="#" class="text-decoration-none">Report abuse</a>
                         </div>
                     </section>
-
-                    <!--Aquí empieza el trabajo rechy-->
+                    
                     <section class="card read-all container p-2 p-md-5 mb-4">
                         <h2 class="read-title strong">Read next</h2>
                             <div id="container-readnext">
 
                             </div>
                     </section>
-
-
-
-
 
                 </main>
             </div>
@@ -471,9 +472,9 @@
                             <div class="mt-n4">
                                 <a href="#" class="d-flex align-items-end">
                                     <div class="card-profile-avatar">
-                                        <img src="./assets/images/avatars/meowth.png" class="avatar" alt="">
+                                        <img src="" class="avatar" alt="">
                                     </div>
-                                    <span class="card-profile-name">Meowth</span>
+                                    <span class="card-profile-name"></span>
                                 </a>
                             </div>
                             <div class="btn-follow-container mt-4">
@@ -488,32 +489,24 @@
                                         <div class="key">
                                             Location
                                         </div>
-                                        <div class="value">
-                                            Kanto
+                                        <div class="value" id="user-location">
+                                            
                                         </div>
                                     </li>
                                     <li>
                                         <div class="key">
                                             Education
                                         </div>
-                                        <div class="value">
-                                            Life University
+                                        <div class="value" id="user-education">
+                                           
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="key">
-                                            Work
-                                        </div>
-                                        <div class="value">
-                                            Software Engineer at <strong>Team Rocket</strong>
-                                        </div>
-                                    </li>
+                                    </li>                                    
                                     <li>
                                         <div class="key">
                                             Joined
                                         </div>
                                         <div class="value">
-                                            <time class="date">Jan 01, 2020</time>
+                                            <time class="date" id="user-registration-date">Jan 01, 2020</time>
                                         </div>
                                     </li>
                                 </ul>

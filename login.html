@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV Community</title>
+    <title>Login</title>
     <link rel="icon" type="image/x-icon"
         href="https://res.cloudinary.com/practicaldev/image/fetch/s--E8ak4Hr1--/c_limit,f_auto,fl_progressive,q_auto,w_32/https://dev-to.s3.us-east-2.amazonaws.com/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet'
+        type='text/css' />
+    <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
@@ -29,11 +32,11 @@
                     </button>
                     <a class="navbar-brand p-0" href="index.html"><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png
                     " alt=""></a>
-                    <div class="d-none d-md-flex search">
+                    <form class="d-none d-md-flex search">
                         <div class="input-group">
-                            <input type="text" id="input-desktop-search" class="form-control border-end-0" placeholder="Search..."
+                            <input type="text" class="form-control border-end-0" placeholder="Search..."
                                 aria-label="search" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="btn-desktop-search">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     aria-hidden="true" class="crayons-icon c-btn__icon" focusable="false">
                                     <path
@@ -42,7 +45,7 @@
                                 </svg>
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="user d-flex align-items-center">
                     <a class="n-link p-1 d-inline-block d-md-none" href="#">
@@ -50,57 +53,16 @@
                         <label for="cbSearch"><img src="./assets/images/icons/search.png" alt=""></label>
                         <div class="search-box" id="search-box-container">
                             <div class="input-group">
-                                <input  id="input-mobile-search" type="text" class="form-control" placeholder="Search..." aria-label="search"
-                                    >
-                                <button class="btn btn-outline-secondary" type="button" id="btn-mobile-search">
+                                <input type="text" class="form-control" placeholder="Search..." aria-label="search"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                                     <img src="./assets/images/icons/search.png" alt="">
                                 </button>
                             </div>
                         </div>
                     </a>
-
-                    <a href="./new.html" class="d-none d-md-block btn-create-post mr-5">Create Post</a>
-
-                    <a class="tag-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"
-                            aria-labelledby="aq9w3ozou4pmtnc15rroryctxmvrbt5k" class="crayons-icon">
-                            <title id="aq9w3ozou4pmtnc15rroryctxmvrbt5k">Notifications</title>
-                            <path d="M20 17h2v2H2v-2h2v-7a8 8 0 1116 0v7zm-2 0v-7a6 6 0 10-12 0v7h12zm-9 4h6v2H9v-2z">
-                            </path>
-                        </svg>
-                    </a>
-                    <a href="#" class="user-menu p-1">
-                        <img class="user-avatar" src="./assets/images/avatars/avatar.png" alt="">
-                    </a>
-                    <div class="user-menu-popover p-2 d-none">
-                        <ul class="ps-0">
-                          <li class="border-bottom">
-                            <a href="/sofysha91" id="first-nav-link" class="c-link c-link--default c-link--block lh-tight">
-                              <div>
-                                <span class="d-block">Panda Rojo</span>
-                                <small>@theOnePandaRojo</small>
-                              </div>
-                            </a>
-                          </li>                    
-                         
-                          <li>
-                            <a href="#" class="c-link c-link--block">Dashboard</a>
-                          </li>
-                          <li>
-                            <a href="./new.html" class="c-link c-link--block">Create Post</a>
-                          </li>    
-                          <li>
-                            <a href="#" class="c-link c-link--block">Reading list</a>
-                          </li>
-                          <li class="border-bottom">
-                            <a href="#" class="c-link c-link--block" id="second-last-nav-link">Settings</a>
-                          </li>
-                      
-                          <li class="pt-2">
-                            <a href="#" class="c-link c-link--block btn-sign-out" id="last-nav-link">Sign Out</a>
-                          </li>
-                        </ul>
-                      </div>
+                    <a href="./login.html" class="d-none d-md-block btn-login me-5">Log in</a>
+                    <a href="./createAccount.html" class="d-none d-md-block btn-create-post mr-5">Create Account</a>
                 </div>
             </div>
             <div class="offcanvas offcanvas-start custom-nav-off d-md-none" tabindex="-1" id="offcanvasNavbar"
@@ -267,48 +229,107 @@
             </div>
         </nav>
     </header>
-    <main>
-        <div class="container p-3 container-main">
-            <div class="row">
-                <div class=" general-div d-flex col-12 justify-content-between ">
-                    <div class="second-div">
-                        <h2>Reading List (<span class="bg-reading" style="background: transparent !important;">0</span>)</h2>
-                    </div>
-                    <div class="thrid-div d-flex justify-content-end align-items-center">
-                        <button type="button" class="btn btn-light btn-lg">View&nbsp;archive</button>
-                            <input type="text" class="form-control border-end-0" placeholder="Search..."
-                                aria-label="search" aria-describedby="button-addon2">
-                    </div>
-                </div>
+    <div class="container p-3 container-main">
+        <div class="row">
+            <div class="col-12 col-md-1">
+                <aside class="aside-left">
+                </aside>
             </div>
-            <div class="row mt-3">
-                <div class="col-12 col-md-3 col-lg-2 d-none d-md-block">
-                    <aside class="aside-left">
-                        <!--Tags-->
-                        <nav class="mb-6" aria-label="aside-tags-nav">                            
-                            <div class="p-1 mb-4 d-flex flex-column">
-                                <a href="#" class="aside-navigation-link selected">All tags</a>
-                                <a href="#" class="aside-navigation-link">#devops</a>
-                                <a href="#" class="aside-navigation-link">#opensource</a>
-                                <a href="#" class="aside-navigation-link">#career</a>
-                                <a href="#" class="aside-navigation-link">#dotnet</a>
-                                <a href="#" class="aside-navigation-link">#csharp</a>
-                                <a href="#" class="aside-navigation-link">#vscode</a>
-                                <a href="#" class="aside-navigation-link">#javascript</a>
-                                <a href="#" class="aside-navigation-link">#phyton</a>
-                                <a href="#" class="aside-navigation-link">#sql</a>
-                                <a href="#" class="aside-navigation-link">#git</a>
+            <div class="block-login col-12 col-md-11 col-lg-8">
+                <section class="crayons-layout">
+                    <div class="registration crayons-card">
+                        <div class="registration_content">
+                            <h1 class="registration_title">Welcome to DEV Community 👩‍💻👨‍💻
+                            </h1>
+                            <p class="registration_description">
+                               <a href="/index.html" class="c-link c-link--branded">DEV Community 👩‍💻👨‍💻 </a> is a community of 900,148 amazing developers
+                            </p>
+                        </div>
+                        <div class="registration_actions">
+                            <div class="registration_actions_cards">
+                                <form class="flex w-100" action="">
+                                    <input type="hidden" name="" id="">
+                                    <button name="button" type="submit" class="crayons-btn crayons-btn--l crayons-btn--brand-apple crayons-btn--icon-left grow-1 whitespace-nowrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" heigth="24" class="crayons-icon" viewBox="0 0 24 24" role="img" aria-labelledby="a5os4651864yb9riwrov0r0w78yv46pe" aria-hidden="true">
+                                        <title>apple</title>
+                                        <path d="M11.752 6.657c.828 0 1.867-.56 2.486-1.307.56-.677.969-1.623.969-2.568 0-.129-.012-.257-.036-.362-.922.035-2.03.618-2.696 1.4-.525.596-1.004 1.53-1.004 2.487 0 .14.024.28.035.326.059.012.152.024.245.024zM8.834 20.78c1.132 0 1.634-.759 3.046-.759 1.436 0 1.75.736 3.011.736 1.238 0 2.066-1.144 2.848-2.265.876-1.284 1.238-2.544 1.261-2.603-.082-.023-2.451-.992-2.451-3.711 0-2.358 1.867-3.42 1.972-3.502-1.237-1.774-3.116-1.82-3.63-1.82-1.389 0-2.52.84-3.233.84-.77 0-1.786-.794-2.988-.794-2.288 0-4.61 1.89-4.61 5.462 0 2.218.863 4.564 1.925 6.082.91 1.284 1.705 2.334 2.849 2.334z"></path>
+                                        </svg>
+                                         Continue with Apple 
+                                    </button>
+                                </form>
+                                <form class="flex w-100" action="">
+                                    <input type="hidden" name="" id="">
+                                    <button name="button" type="submit" class="crayons-btn crayons-btn--l crayons-btn--brand-forem crayons-btn--icon-left grow-1 whitespace-nowrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="24" heigth="24"  class="crayons-icon" viewBox="0 0 200.000000 200.000000" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="af0v1ak0xrhp5l7065o2cda8ctkluve2" aria-hidden="true">
+                                            <title>Forem</title>
+                                            <g transform="translate(0.000000,200.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
+                                                <path d="M0 1000 l0 -1000 1000 0 1000 0 0 1000 0 1000 -1000 0 -1000 0 0 -1000z m1507 684 c91 -55 130 -189 84 -290 -22 -48 -95 -114 -128 -114 -19 0 -25 9 -39 57 l-17 57 26 20 c14 12 31 34 37 50 15 40 -14 98 -55 110 -52 15 -58 21 -72 70 -11 38 -12 51 -1 63 20 24 107 12 165 -23z m-247 -25 c6 -11 12 -39 13 -62 2 -41 2 -42 -45 -57 -68 -22 -70 -26 -52 -100 22 -88 28 -94 88 -76 26 8 54 12 61 10 15 -6 40 -97 32 -118 -3 -8 -31 -21 -61 -30 -31 -9 -56 -20 -56 -24 0 -4 18 -72 40 -152 22 -80 40 -153 40 -162 0 -21 -106 -56 -121 -41 -6 6 -25 68 -44 139 -43 167 -155 586 -160 600 -7 24 16 37 111 65 120 34 140 35 154 8z m-485 -185 c67 -33 136 -105 155 -163 16 -48 13 -53 -52 -74 l-48 -16 -17 26 c-10 15 -35 43 -55 64 -67 68 -175 71 -252 7 -48 -39 -67 -77 -71 -144 -1 -30 -5 -57 -7 -59 -10 -10 -97 -28 -110 -22 -38 14 -29 147 17 237 25 49 94 119 144 144 84 44 206 44 296 0z m791 -730 c12 -48 -2 -147 -30 -201 -37 -75 -76 -115 -148 -154 -58 -31 -70 -34 -148 -34 -73 0 -93 4 -143 29 -67 32 -128 92 -157 152 -25 51 -19 68 29 83 64 19 78 15 103 -30 33 -58 94 -92 168 -92 106 0 178 71 189 186 l6 61 40 12 c65 20 84 17 91 -12z"></path>
+                                            </g>
+                                        </svg>
+                                        continue with Forem
+                                    </button>
+                                </form>
+                                <form class="flex w-100" action="">
+                                    <input type="hidden" name="" id="">
+                                    <button name="button" type="submit" class="crayons-btn crayons-btn--l crayons-btn--brand-github crayons-btn--icon-left grow-1 whitespace-nowrap">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="crayons-icon" viewbox="0 0 24 24" role="img" aria-labelledby="ah40b3uyrystfab1ribq9hrn8ulcuia5" aria-hidden="true">
+                                            <title>Github</title>
+                                            <path d="M12 2C6.475 2 2 6.475 2 12a9.994 9.994 0 006.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.338 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 012.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0022 12c0-5.525-4.475-10-10-10z"></path>
+                                        </svg>
+                                        continue with Git Hub
+                                    </button>
+                                </form>
+                                <form class="flex w-100" action="">
+                                    <input type="hidden" name="" id="">
+                                    <button name="button" type="submit" class="crayons-btn crayons-btn--l crayons-btn--brand-twitter crayons-btn--icon-left grow-1 whitespace-nowrap" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="crayons-icon" width="24" height="24" viewBox="0 0 24 24" role="img" aria-labelledby="a88a7506l5k7ni6r533vhhb6ovefr5da" aria-hidden="true" >
+                                        <title >twitter</title>
+                                            <path d="M22.162 5.656a8.383 8.383 0 01-2.402.658A4.196 4.196 0 0021.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 00-7.126 3.814 11.874 11.874 0 01-8.62-4.37 4.168 4.168 0 00-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 01-1.894-.523v.052a4.185 4.185 0 003.355 4.101 4.211 4.211 0 01-1.89.072A4.185 4.185 0 007.97 16.65a8.395 8.395 0 01-6.191 1.732 11.83 11.83 0 006.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.495 8.495 0 002.087-2.165l-.001-.001z" fill="#ffffff" >
+                                            </path> 
+                                        </svg> 
+                                        continue with twitter
+                                    </button>
+                                </form>
                             </div>
-                        </nav>
-                    </aside>
-                </div>
-                <!--ReadingList-->
-                <div class="radingListPost col-12 col-md-9 col-lg-10">
-
-                </div>
+                            <div class="registration__actions-email">
+                                <div class="registration_hr">
+                                    <span class="registration_hr-label">
+                                       Have a password? Continue with your email address
+                                    </span>
+                                </div>
+                                <form class="new_user" action="">
+                                    <div class="crayons-field mb-3">
+                                        <label class="crayons-field__label" for="user_mail">Email</label>
+                                        <input autocomplete="email" class="crayons-textfield" type="email" id="email" name="email">
+                                    </div>
+                                    <div class="crayons-field mb-3">
+                                        <label class="crayons-field__label"for="user_password">Password</label>
+                                        <input autocomplete="current-password"class="crayons-textfield" id="password" type="password">
+                                    </div>
+                                    <div class="crayons-field crayons-field--checkbox inline-flex flex-row items-center">
+                                        <input class="crayons-checkbox" type="checkbox" value="1" checked="checked">
+                                        <label class="crayons-field__label fw-normal" for="">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <div class="actions pt-3">
+                                        <input type="submit" name="commit" value="Continue" id="btn-continue-login" class="crayons-btn crayons-btn--l w-100"
+                                            data-disable-with="Continue">
+                                    </div>
+                                </form>
+                                <p class="pt-6 fs-s align-center">
+                                    I forgot my password
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                        </div>
+                        <div class="result">
+                        </div>
+                </section>
             </div>
         </div>
-    </main>
+    </div>
     <footer class="pg-footer bg-dark bg-opacity-10 p-2 p-5">
         <div class="container sans-serif">
             <div class="row text-center">
@@ -344,14 +365,14 @@
             </div>
     </footer>
 
-    <script src="/assets/js/save.js"></script>
+    
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/login.js"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
 
 </body>
-
 
 </html>

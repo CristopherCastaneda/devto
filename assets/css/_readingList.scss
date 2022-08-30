@@ -68,10 +68,11 @@ img {
     .nav-link {
         color: $tags-hover;
         border: 0;
+        border-radius: 8px;
 
         &.active {
             font-weight: bold;
-            background-color: $bg-body;
+            background-color: $white;
             color: #000;
         }
 
