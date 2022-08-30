@@ -19,6 +19,17 @@ comment.addEventListener("input", (event) => {
         btnSaveComments.disabled = true;
     }
 });
+// document.querySelector(".btn-upload").addEventListener("click", () =>{
+//     btnImage.click();
+// });
+// btnImage.addEventListener("change", ()=>{
+//     //spinner
+//     document.querySelector(".btn-upload").innerHTML = `<div class="spinner-border text-primary" role="status">
+//         <span class="visually-hidden">Loading...</span>
+//     </div>`;
+//     uploadImage();
+// });
+
 /*
 *  Save comment event
 */
