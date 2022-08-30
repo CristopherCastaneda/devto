@@ -194,6 +194,7 @@ const printReadNext = (posts) => {
     {
         //get random number
         let randomIndex = Math.floor(Math.random() * ids.length);
+        console.log(randomIndex)
         
         if(ids[randomIndex] != postId && !usedId.includes(randomIndex))
         {
