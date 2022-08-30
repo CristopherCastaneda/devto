@@ -93,7 +93,7 @@ btnPublish.addEventListener("click" , async (e) => {
             }   
             console.log(newPost)
             //Save Post
-            const responsePost = await fetch(`${APIURL}post`, {
+            const responsePost = await fetch(`${APIURL}posts`, {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",

@@ -28,7 +28,7 @@ btnSaveComments.addEventListener("click", async (e) => {
     e.preventDefault();
     try{
         //get Post
-        const responsePost = await fetch(`${APIURL}post/${postId}`, {
+        const responsePost = await fetch(`${APIURL}posts/${postId}`, {
             method: "GET",
             headers: {
             "Content-Type": "application/json"
@@ -48,7 +48,7 @@ btnSaveComments.addEventListener("click", async (e) => {
             date: new Date().toLocaleDateString()        
         }  
         PostComments.push(newComment);
-        const response = await fetch(`${APIURL}post/${postID}`, {
+        const response = await fetch(`${APIURL}posts/${postID}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
