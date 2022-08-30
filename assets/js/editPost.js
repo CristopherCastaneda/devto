@@ -37,7 +37,8 @@ btnEdit.addEventListener("click", async (e) => {
             const responsePost = await fetch(`${APIURL}post/${postIdDetail}`, {
                 method: "PATCH",
                 headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(newPost)
             });

@@ -1,14 +1,3 @@
-//Firebase storage
-const firebaseConfig = {
-    apiKey: "AIzaSyBEIxH2FAp5AFQsgrJL3BEKJmKnEyrbM1U",
-    authDomain: "devtorocketg20.firebaseapp.com",
-    databaseURL: "https://devtorocketg20-default-rtdb.firebaseio.com",
-    projectId: "devtorocketg20",
-    storageBucket: "devtorocketg20.appspot.com",
-    messagingSenderId: "922740208168",
-    appId: "1:922740208168:web:e073479da552b0f27ebb1d"
-  };
-
 // Firebase Init
 firebase.initializeApp(firebaseConfig);
 
@@ -107,7 +96,8 @@ btnPublish.addEventListener("click" , async (e) => {
             const responsePost = await fetch(`${APIURL}post`, {
                 method: "POST",
                 headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify(newPost)
             });
@@ -194,8 +184,8 @@ const getTags = (tagifyArr) => {
  
 
  const getUser = async () => {
-    let testid = "630d72f4c193ea15dbe46ab9";
-    const response = await fetch(`${APIURL}users/${testid}`, {
+    
+    const response = await fetch(`${APIURL}users/${tokenUserID}`, {
         method: "GET",
         headers: {
         "Content-Type": "application/json"

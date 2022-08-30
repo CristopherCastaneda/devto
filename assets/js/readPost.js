@@ -33,9 +33,8 @@ const objectToArray = (posts) => {
     return array;    
 }
 
-const printPosts = (posts) => {
+const printPosts =  (posts, savedPost) => {
     
-    let savedPost = getUserSavedPosts();
     let template = "";
 
     posts.forEach((post, index) => {        
@@ -126,11 +125,11 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
     let posts = await getPosts(`${APIURL}posts/.json`);   
     let arrayPost = objectToArray(posts);    
-    let savedPost = getUserSavedPosts();
+    let savedPost = await getUserSavedPosts();
     
     //Relevant Post
-    postRead.innerHTML = printPosts(arrayPost);        
-    postLatest.innerHTML = printPosts(arrayPost.reverse());
+    postRead.innerHTML = printPosts(arrayPost, savedPost);        
+    postLatest.innerHTML = printPosts(arrayPost.reverse(), savedPost);
 
     /*Save button*/
     let savePostBtn = document.getElementsByClassName('btn-save-post');
