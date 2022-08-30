@@ -24,21 +24,21 @@ header nav .logo .btn-hamburger:focus {
           box-shadow: none;
 }
 
-header nav .logo form {
+header nav .logo .search {
   min-width: 400px;
 }
 
-header nav .logo form #button-addon2 {
+header nav .logo .search button {
   background-color: white;
   border: 1px solid #ced4da;
   border-left: none;
 }
 
-header nav .logo form #button-addon2 svg path {
+header nav .logo .search button svg path {
   fill: currentColor;
 }
 
-header nav .logo form #button-addon2:hover {
+header nav .logo .search button:hover {
   background-color: rgba(59, 73, 223, 0.1);
   color: #2f3ab2;
 }
@@ -921,11 +921,12 @@ img {
 .nav-item .nav-link {
   color: #171717;
   border: 0;
+  border-radius: 8px;
 }
 
 .nav-item .nav-link.active {
   font-weight: bold;
-  background-color: whitesmoke;
+  background-color: white;
   color: #000;
 }
 
@@ -1041,22 +1042,16 @@ img {
   width: 100%;
 }
 
-.fr-toolbar.fr-top {
+.ql-toolbar {
   background-color: #f9f9f9;
   border-radius: 0;
-  border: none;
-}
-
-.fr-wrapper, .fr-second-toolbar {
   border: none !important;
 }
 
-.fr-wrapper {
+#editor-content {
   min-height: 300px;
-}
-
-.fr-wrapper .fr-element.fr-view {
   font-size: 18px;
+  border: none;
 }
 
 .customSuggestionsList > div {

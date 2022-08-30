@@ -2,37 +2,32 @@ const postRead = document.querySelector("#pills-home");
 const postLatest = document.querySelector("#pills-profile");
 const postTop = document.querySelector("#pills-contact");
 
-const getPosts = (url) => {
-    let posts = [];
-    const postRequest = new XMLHttpRequest();
-
-    postRequest.onload = (data) => {
-
-        if (data.target.readyState === 4) {
-            if (
-                data.target.status >= 200 ||
-                data.target.status <= 399
-            ) {
-                posts = JSON.parse(data.target.response);
+const getPosts = async (url) => {
+    
+    try {
+        const response = await fetch(`${APIURL}post`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
             }
-            else if (data.target.status === 400) {
-                console.log('sucedio un error')
-            }
-        }
+        });
+        
+        const posts = await response.json();
+        return posts.data.posts;      
+        
     }
-    postRequest.open("GET", url, false);
-    postRequest.send();
-    return posts;
+    catch(error){
+        console.log(error);
+    }
+   
 }
 
 /**
  * Function to convert Object to Array
  */
- const objectToArray = (posts) => {
+const objectToArray = (posts) => {
     var array = [];
-
-    for (var id in posts) {
-         posts[id].postID = id;
+    for (var id in posts) {         
          array.push(posts[id]);
     } 
     return array;    
@@ -43,12 +38,12 @@ const printPosts = (posts) => {
     let savedPost = getUserSavedPosts();
     let template = "";
 
-    posts.forEach((post, index) => {
+    posts.forEach((post, index) => {        
         let countComments = 0;
         // Cover functionality
         let imgPost = "";
-        if (index === 0 && post.urlCoverImage != "" ) {
-            imgPost = `<img src="${post.urlCoverImage}" alt="main-image">`
+        if (index === 0 && post.post_banner != "" ) {
+            imgPost = `<img src="${post.post_banner}" alt="main-image">`
         }
 
         // Tags functionality
@@ -75,23 +70,23 @@ const printPosts = (posts) => {
         <div class="card-body p-1 p-xl-3">
             <div class="d-flex align-items-center mb-3">
                 <div class="main-profile">
-                    <img class="rounded-circle" src="${post.avatarAuthor}"
+                    <img class="rounded-circle" src="${post.user.profile_photo}"
                         alt="profile">
                 </div>
                 <div class="mx-2 profile-name p-1">
-                    <a href="" class="text-decoration-none">${post.author}</a>
-                    <p class="post-date my-0">${new Date(post.createdDate).toLocaleDateString('en-us', dateFormatOptions)}</p>
+                    <a href="" class="text-decoration-none">${post.user.user_name}</a>
+                    <p class="post-date my-0">${new Date(post.post_date).toLocaleDateString('en-us', dateFormatOptions)}</p>
                 </div>
             </div>
             <div class="card-content p-0 ps-md-5">
-                <h3><a href="detail.html?id=${post.postID}">${post.title}</a></h3>
+                <h3><a href="detail.html?id=${post._id}">${post.post_title}</a></h3>
                 <div class="d-flex my-3">
                 ${tags}
                 </div>
                 <div class="main-icons d-flex justify-content-between mb-3">
                     <div class="d-flex justify-content-between card-reactions">
                         <div class="card-reactions-detail">
-                            <a href="detail.html?id=${post.postID}" class="text-decoration-none">
+                            <a href="detail.html?id=${post._id}" class="text-decoration-none">
                                 <svg class="crayons-icon" width="24" height="24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -102,7 +97,7 @@ const printPosts = (posts) => {
                             </a>
                         </div>
                         <div class="card-reactions-detail">
-                            <a href="detail.html?id=${post.postID}" class="text-decoration-none"><svg
+                            <a href="detail.html?id=${post._id}" class="text-decoration-none"><svg
                                     class="crayons-icon" width="24" height="24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -114,8 +109,8 @@ const printPosts = (posts) => {
                         </div>
                     </div>
                     <div class="d-flex justify-content-between card-reactions">
-                        <a href="" class="text-decoration-none me-2">${post.mintoread} min</a>
-                        <button class="btn btn-secondary btn-save-post" data-postid="${post.postID}">${savedPost.includes(post.postID)? "Saved" : "Save"}</button>
+                        <a href="" class="text-decoration-none me-2">${post.read_time} min</a>
+                        <button class="btn btn-secondary btn-save-post" data-postid="${post._id}">${savedPost.includes(post._id)? "Saved" : "Save"}</button>
                     </div>
                 </div>
             </div>
@@ -127,12 +122,12 @@ const printPosts = (posts) => {
     return template;
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', async (event) => {
 
-    let posts = getPosts("https://devtorocketg20-default-rtdb.firebaseio.com/posts/.json");
-    let arrayPost = objectToArray(posts);
+    let posts = await getPosts(`${APIURL}posts/.json`);   
+    let arrayPost = objectToArray(posts);    
     let savedPost = getUserSavedPosts();
-    console.log(savedPost)
+    
     //Relevant Post
     postRead.innerHTML = printPosts(arrayPost);        
     postLatest.innerHTML = printPosts(arrayPost.reverse());

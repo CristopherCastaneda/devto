@@ -19,9 +19,9 @@ header{
                     box-shadow: none;
                 }
             }
-            form{
+            .search{
                 min-width: 400px;
-                #button-addon2{
+                button{
                     background-color: $white;
                     border: 1px solid rgb(206, 212, 218);
                     border-left: none;

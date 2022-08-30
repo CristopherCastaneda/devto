@@ -31,11 +31,11 @@
                     </button>
                     <a class="navbar-brand p-0" href="index.html"><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png
                     " alt=""></a>
-                    <form class="d-none d-md-flex search">
+                    <div class="d-none d-md-flex search">
                         <div class="input-group">
-                            <input type="text" class="form-control border-end-0" placeholder="Search..."
+                            <input type="text" id="input-desktop-search" class="form-control border-end-0" placeholder="Search..."
                                 aria-label="search" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="btn-desktop-search">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     aria-hidden="true" class="crayons-icon c-btn__icon" focusable="false">
                                     <path
@@ -44,7 +44,7 @@
                                 </svg>
                             </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="user d-flex align-items-center">
                     <a class="n-link p-1 d-inline-block d-md-none" href="#">
@@ -52,9 +52,8 @@
                         <label for="cbSearch"><img src="./assets/images/icons/search.png" alt=""></label>
                         <div class="search-box" id="search-box-container">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." aria-label="search"
-                                    aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                                <input  id="input-mobile-search" type="text" class="form-control" placeholder="Search..." aria-label="search">
+                                <button class="btn btn-outline-secondary" type="button" id="btn-mobile-search">
                                     <img src="./assets/images/icons/search.png" alt="">
                                 </button>
                             </div>
@@ -488,7 +487,7 @@
                                         <div class="key">
                                             Location
                                         </div>
-                                        <div class="value">
+                                        <div class="value" id="user-location">
                                             Kanto
                                         </div>
                                     </li>
@@ -496,7 +495,7 @@
                                         <div class="key">
                                             Education
                                         </div>
-                                        <div class="value">
+                                        <div class="value" id="user-education">
                                             Life University
                                         </div>
                                     </li>
@@ -513,7 +512,7 @@
                                             Joined
                                         </div>
                                         <div class="value">
-                                            <time class="date">Jan 01, 2020</time>
+                                            <time class="date" id="user-registration-date">Jan 01, 2020</time>
                                         </div>
                                     </li>
                                 </ul>

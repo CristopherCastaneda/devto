@@ -33,12 +33,12 @@ document.addEventListener(("DOMContentLoaded"),() => {
 const printSavedPost = () => {
             
     let template = "";
-    let userData = get(`https://devtorocketg20-default-rtdb.firebaseio.com/users/-N8aKUfGWMxVfZEePuh2.json`);
+    let userData = get(`${APIURL}users/-N8aKUfGWMxVfZEePuh2.json`);
     userData.saved.forEach((postId, index) => {
        
         if (postId != null || postId != "" || postId != "null"){
             console.log(postId)   
-        let postData = get(`https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postId}.json`);   
+        let postData = get(`${APIURL}posts/${postId}.json`);   
 
         let tags = ""; 
         

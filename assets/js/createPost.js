@@ -23,18 +23,26 @@ let helpContent = document.querySelector(".help-post-content");
 let helpTags = document.querySelector(".help-post-tags");
 let postOptions = document.querySelector(".post-options-dropdown");
 
-//Froala Editor
-let editor = new FroalaEditor('textarea#editor-content', {
-    toolbarButtons: [ 'bold', 'italic','fontSize', 'color', 'underline', 'strikeThrough', 'formatOL', 'formatUL', 'outdent', 'indent','quote', 'clearFormatting', 'insertTable', 'html'],
-    placeholderText: 'Write your post content here...',
-    events: {
-        'focus': function () {
-            helpTitle.classList.add("d-none");
-            helpContent.classList.remove("d-none");
-            helpTags.classList.add("d-none");
-        }
-      }    
-});
+var quill = new Quill('#editor-content', {
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, 3, 4, 5, 6,  false] }],
+        ['bold', 'italic', 'underline','strike'],
+        ['blockquote', 'code-block', 'align'],
+        ['link'],
+        [{ 'script': 'sub'}, { 'script': 'super' }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        ['clean']
+      ]
+    },
+    placeholder: 'Write your post content here...',
+    theme: 'snow'  // or 'bubble'
+  });
+    quill.root.addEventListener("click", () => {
+        helpTitle.classList.add("d-none");
+        helpContent.classList.remove("d-none");
+        helpTags.classList.add("d-none");
+    });
 
 //! Events
 document.querySelector(".btn-cover-post").addEventListener("click", () =>{
@@ -63,51 +71,63 @@ document.querySelector(".post-editor-title").addEventListener('focus', () => {
     helpTags.classList.add("d-none");
 });
 
-if(btnPublish!=null){
+if(btnPublish){
 
-btnPublish.addEventListener("click" , (e) => {  
+btnPublish.addEventListener("click" , async (e) => {  
 
-    let tags = getTags(tagify.value);    
-    let title = document.querySelector(".post-editor-title").value;
-    let content = document.querySelector(".post-editor-content").value;
+    try{
 
-    if( title == '' || content == '')
-    {        
-        result.innerHTML = `<div class="alert alert-danger" role="alert">
-            Los campos no pueden estar vacios.
-        </div>`;
+        let tags = getTags(tagify.value);    
+        let title = document.querySelector(".post-editor-title").value;
+        let content = quill.root.innerHTML;
+
+        if( title == '' || content == '')
+        {        
+            result.innerHTML = `<div class="alert alert-danger" role="alert">
+                Los campos no pueden estar vacios.
+            </div>`;
+        }
+        else{
+            //Get user data
+            let userPost = await getUser();
+
+            //Create post object
+            const newPost = {
+                post_title: title,
+                post_body: content,
+                post_banner: cover,
+                post_date: new Date(),
+                tags: tags,            
+                read_time: Math.ceil(quill.getText().length / 200),
+                user: userPost              
+
+            }   
+            console.log(newPost)
+            //Save Post
+            const responsePost = await fetch(`${APIURL}post`, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newPost)
+            });
+            
+            const post = await responsePost.json();
+            result.innerHTML =  `<div class="alert alert-success" role="alert">
+                            El formulario ha sido enviado
+                        </div>`;
+            setTimeout(
+                function(){
+                    window.location = `detail.html?id=${post.data.post._id}` 
+                },
+            1500);
+        }
     }
-    else{
-        //Create post object
-        const newPost = {
-            title: title,
-            content: content,
-            urlCoverImage: cover,
-            author: 'Panda Rojo',
-            createdDate: new Date(),
-            mintoread: Math.ceil(editor.charCounter.count() / 200),
-            avatarAuthor: './assets/images/avatars/avatar.png',
-            tags: tags
-        }       
-        
-        fetch('https://devtorocketg20-default-rtdb.firebaseio.com/posts.json', {method: "POST",body: JSON.stringify(newPost),headers: {"Content-type": "application/json; charset=UTF-8"}})
-        .then((res)=>{
-                return res.json();
-        }).then((res)=>{
-                console.log(res.name);
-                result.innerHTML =  `<div class="alert alert-success" role="alert">
-                        El formulario ha sido enviado
-                    </div>`;
-                    setTimeout(
-                        function(){
-                            window.location = `detail.html?id=${res.name}` 
-                        },
-                    1500);
-        }).catch((error)=>{
-            result.innerHTML =  `<div class="alert alert-danger" role="alert">
-            Ocurrio un error. ${error}
-        </div>`;      
-        });
+    catch(error){
+        console.log(error);
+        result.innerHTML =  `<div class="alert alert-danger" role="alert">
+                Ocurrio un error. ${error}
+            </div>`;
     }
 });
 }
@@ -162,7 +182,8 @@ const getTags = (tagifyArr) => {
         enabled: 1,             
         closeOnSelect: false 
       },
-     enforceWhitelist: false
+     enforceWhitelist: false,
+     maxTags: 4            
  });
 
  tagify.DOM.input.addEventListener('focus', () => {
@@ -172,4 +193,19 @@ const getTags = (tagifyArr) => {
  });
  
 
- 
+ const getUser = async () => {
+    let testid = "630d72f4c193ea15dbe46ab9";
+    const response = await fetch(`${APIURL}users/${testid}`, {
+        method: "GET",
+        headers: {
+        "Content-Type": "application/json"
+        }
+    });
+    
+    const user = await response.json(); 
+    let userPost = user.data.user;
+    delete userPost.password;
+    delete userPost.savedPost;
+
+    return userPost;
+ }

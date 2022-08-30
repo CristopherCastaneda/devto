@@ -22,32 +22,51 @@ comment.addEventListener("input", (event) => {
 /*
 *  Save comment event
 */
-btnSaveComments.addEventListener("click", (e) => {
+btnSaveComments.addEventListener("click", async (e) => {
     e.preventDefault();
-    let params = new URLSearchParams(window.location.search);
-    let postID = params.get('id');
-    let commentValue = comment.value;
+    try{
+        //get Post
+        const responsePost = await fetch(`${APIURL}post/${postId}`, {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json"
+            }
+        });
+        
+        let post = await responsePost.json();  
+        let PostComments = post.data.post.comments;
+        
+        let params = new URLSearchParams(window.location.search);
+        let postID = params.get('id');
+        let commentValue = comment.value;
 
-    const newComment = {
-        author : getRandomName(),
-        content: commentValue,
-        date: new Date().toLocaleDateString()        
-    }    
-
-    fetch(`https://devtorocketg20-default-rtdb.firebaseio.com/posts/${postID}/comments.json`, {method: "POST",body: JSON.stringify(newComment),headers: {"Content-type": "application/json; charset=UTF-8"}})
-    .then((res)=>{
-            return res.json();
-    }).then((res)=>{
-            console.log(res.name);            
-            setTimeout(
-                function(){
-                    location.reload()
-                },
-             1500);
-    }).catch((error)=>{
-        console.log(error);      
-    });
-
+        const newComment = {
+            author : getRandomName(),
+            content: commentValue,
+            date: new Date().toLocaleDateString()        
+        }  
+        PostComments.push(newComment);
+        const response = await fetch(`${APIURL}post/${postID}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({comments: PostComments })
+        });
+        
+        const posts = await response.json();
+        console.log(posts)
+        setTimeout(
+            function(){
+                location.reload()
+            },
+         1500);
+        
+    }
+    catch(error){
+        console.log(error);
+    }             
+    
 });
 
 /**

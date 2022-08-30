@@ -79,24 +79,16 @@
     }
 }
 
-
-
-
-
-//Froala custom
-.fr-toolbar.fr-top {
+//Quill Custom
+.ql-toolbar{
     background-color: #f9f9f9;
     border-radius: 0;
-    border: none;
-}
-.fr-wrapper, .fr-second-toolbar{
     border: none !important;
 }
-.fr-wrapper{
+#editor-content{
     min-height: 300px;
-    .fr-element.fr-view{
-        font-size: 18px;
-    }
+    font-size: 18px;
+    border: none;
 }
 
 
