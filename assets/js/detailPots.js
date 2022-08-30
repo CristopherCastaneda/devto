@@ -164,7 +164,12 @@ const printReadNext = (posts) => {
     while(usedId.length < maxPost)
     {
         //get random number
+<<<<<<< HEAD
         let randomIndex = Math.floor(Math.random() * posts.length);
+=======
+        let randomIndex = Math.floor(Math.random() * ids.length);
+        console.log(randomIndex)
+>>>>>>> 96863d3156e2196383635371bccfca84ea7388b7
         
         if(posts[randomIndex]._id != postId && !usedId.includes(randomIndex))
         {
