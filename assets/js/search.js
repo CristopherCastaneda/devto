@@ -28,7 +28,7 @@ const printSearchdPost = async () => {
         let savedPost = await getUserSavedPosts();
         let template = "";      
 
-        const response = await fetch(`${APIURL}post${search}`, {
+        const response = await fetch(`${APIURL}posts${search}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json"

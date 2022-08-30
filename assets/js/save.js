@@ -25,7 +25,7 @@ const printSavedPost = async (savedPost) => {
         for (const postId of savedPost) {
             if (postId != null || postId != "" || postId != "null"){
             
-                const response = await fetch(`${APIURL}post/${postId}`, {
+                const response = await fetch(`${APIURL}posts/${postId}`, {
                     method: "GET",
                     headers: {
                     "Content-Type": "application/json"

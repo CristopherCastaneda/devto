@@ -34,7 +34,7 @@ btnEdit.addEventListener("click", async (e) => {
 
             }   
             //Save Post
-            const responsePost = await fetch(`${APIURL}post/${postIdDetail}`, {
+            const responsePost = await fetch(`${APIURL}posts/${postIdDetail}`, {
                 method: "PATCH",
                 headers: {
                 "Content-Type": "application/json",
@@ -64,7 +64,7 @@ btnEdit.addEventListener("click", async (e) => {
 document.addEventListener("DOMContentLoaded", async (e) => { 
     
     try{
-        const response = await fetch(`${APIURL}post/${postIdDetail}`, {
+        const response = await fetch(`${APIURL}posts/${postIdDetail}`, {
             method: "GET",
             headers: {
             "Content-Type": "application/json"

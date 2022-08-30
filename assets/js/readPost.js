@@ -5,7 +5,7 @@ const postTop = document.querySelector("#pills-contact");
 const getPosts = async (url) => {
     
     try {
-        const response = await fetch(`${APIURL}post`, {
+        const response = await fetch(`${APIURL}posts`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json"

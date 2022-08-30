@@ -7,7 +7,7 @@ let savedReaction = document.querySelector(".reaction-button-save");
 //! Post Detail
 const getDetailPost = async (url) => {
     try{
-        const response = await fetch(`${APIURL}post/${postId}`, {
+        const response = await fetch(`${APIURL}posts/${postId}`, {
             method: "GET",
             headers: {
             "Content-Type": "application/json"
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             let response = confirm("Are you sure you want to delete this article?\n You cannot undo this action");
             if (response) {
                 try{
-                    const response = await fetch(`${APIURL}post/${postId}`, {
+                    const response = await fetch(`${APIURL}posts/${postId}`, {
                         method: "DELETE",
                         headers: {
                             "Authorization": `Bearer ${token}`
@@ -142,7 +142,7 @@ let updateProfile = (user) =>{
 /*Read next*/
 const readNext = async () => {
     try{
-        const response = await fetch(`${APIURL}post`, {
+        const response = await fetch(`${APIURL}posts`, {
             method: "GET",
             headers: {
             "Content-Type": "application/json"
