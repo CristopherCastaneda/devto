@@ -23,7 +23,7 @@ const firebaseConfig = {
   appId: "1:922740208168:web:e073479da552b0f27ebb1d"
 };
 
-const APIURL = "dev-devto-backend-nine.vercel.app";
+const APIURL = "dev-devto-backend-nine.vercel.app/";
 //! Functions
 /**
  * Toggle Class
