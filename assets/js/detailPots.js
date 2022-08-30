@@ -27,17 +27,15 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     let posts = await getDetailPost();    
     let tags = "";
-    let editPost= posts.author;
     
     let btnEditPost="";
-    
-        
+    if(tokenUserID == posts.user._id){    
         btnEditPost += `<div class="btnEditPost">
                             <a href="./editPost.html?id=${postId}" class="btn px-2">Edit</a>
                             <button type="button" class="btn btn-danger px-2 btn-delete-post">Delete</button>
                             <a href="" class="btn px-2">stat</a>
                         </div>`;
-    
+    }
      
     if ('tags' in posts) {
         if (posts.tags.length > 0) {
@@ -97,7 +95,10 @@ document.addEventListener("DOMContentLoaded", async (e) => {
             if (response) {
                 try{
                     const response = await fetch(`${APIURL}post/${postId}`, {
-                        method: "DELETE"                        
+                        method: "DELETE",
+                        headers: {
+                            "Authorization": `Bearer ${token}`
+                        }                        
                     });
                     
                     const posts = await response.json();
@@ -116,7 +117,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     }
 
     /*Saved*/
-    let savedPost = getUserSavedPosts();
+    let savedPost = await getUserSavedPosts();
     if(savedPost.includes(postId)){
         savedReaction.classList.add("active");
         document.querySelector(".path-saved").classList.remove("d-none");
@@ -160,16 +161,11 @@ const printReadNext = (posts) => {
     let template = "";
     let usedId = [];
     let maxPost = posts.length > 4 ? 4 : posts.length-1;
-    console.log(maxPost)
+    
     while(usedId.length < maxPost)
     {
         //get random number
-<<<<<<< HEAD
         let randomIndex = Math.floor(Math.random() * posts.length);
-=======
-        let randomIndex = Math.floor(Math.random() * ids.length);
-        console.log(randomIndex)
->>>>>>> 96863d3156e2196383635371bccfca84ea7388b7
         
         if(posts[randomIndex]._id != postId && !usedId.includes(randomIndex))
         {

@@ -1,8 +1,9 @@
 //Var declarations
-let btnSaveComments = document.querySelector(".btn-save-comment");
-let commentForm = document.querySelector(".form-comments");
-let commentsContainer = document.querySelector("#all-comments-container");
-let comment = document.querySelector("#comment-content");
+const btnSaveComments = document.querySelector(".btn-save-comment");
+const commentForm = document.querySelector(".form-comments");
+const commentsContainer = document.querySelector("#all-comments-container");
+const comment = document.querySelector("#comment-content");
+const newCommentContainer = document.querySelector(".comments-container");
 
 //! Events
 commentForm.addEventListener("click", () => {
@@ -11,7 +12,7 @@ commentForm.addEventListener("click", () => {
 });
 
 comment.addEventListener("input", (event) => {
-    console.log(comment.value)
+    
     if(comment.value != null && comment.value != ""){
         btnSaveComments.disabled = false;
     }
@@ -19,16 +20,6 @@ comment.addEventListener("input", (event) => {
         btnSaveComments.disabled = true;
     }
 });
-// document.querySelector(".btn-upload").addEventListener("click", () =>{
-//     btnImage.click();
-// });
-// btnImage.addEventListener("change", ()=>{
-//     //spinner
-//     document.querySelector(".btn-upload").innerHTML = `<div class="spinner-border text-primary" role="status">
-//         <span class="visually-hidden">Loading...</span>
-//     </div>`;
-//     uploadImage();
-// });
 
 /*
 *  Save comment event
@@ -60,13 +51,14 @@ btnSaveComments.addEventListener("click", async (e) => {
         const response = await fetch(`${APIURL}post/${postID}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({comments: PostComments })
         });
         
         const posts = await response.json();
-        console.log(posts)
+        
         setTimeout(
             function(){
                 location.reload()
@@ -145,4 +137,10 @@ function getRandomName(){
     ]
     const randomIndex = Math.floor(Math.random() * names.length);
     return names[randomIndex];    
+}
+
+if(!token){
+    if(newCommentContainer){
+        newCommentContainer.classList.add("d-none");
+    }
 }

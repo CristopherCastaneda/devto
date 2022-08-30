@@ -3,8 +3,7 @@ const btnLogin = document.querySelector("#btn-continue-login");
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 
-// Constants
-const URL = "http://localhost:8080/auth"
+
 // OnClick
 btnLogin.addEventListener("click", async (event)  => {
   event.preventDefault();
@@ -18,7 +17,7 @@ btnLogin.addEventListener("click", async (event)  => {
   };
 
   // Fetch
-  const response = await fetch(URL, {
+  const response = await fetch(`${APIURL}auth`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -26,17 +25,12 @@ btnLogin.addEventListener("click", async (event)  => {
     body: JSON.stringify(data)
   });
 
-  const jsonData = await response.json()
+  const jsonData = await response.json();
 
-  // No fue exitoso, no estas autorizado
   if(!jsonData.success) {
     alert("Ingresaste mal tus datos")
   } else {
-    // Si estas autorizado
-    // LocalStorage
-    localStorage.setItem("token", jsonData.data.token)
-
-    // Navegar
-    window.location.href = "./index.html"
-  };
+    localStorage.setItem("token", jsonData.data.token);
+    window.location.href = "./index.html";
+  }
 });

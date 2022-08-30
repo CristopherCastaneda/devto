@@ -25,7 +25,7 @@ document.addEventListener(("DOMContentLoaded"),() => {
 const printSearchdPost = async () => {
     try {
         let search = `?q=${searchParam}`;
-        let savedPost = getUserSavedPosts();
+        let savedPost = await getUserSavedPosts();
         let template = "";      
 
         const response = await fetch(`${APIURL}post${search}`, {
