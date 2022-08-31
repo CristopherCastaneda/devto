@@ -47,7 +47,7 @@ if(userMenu != null){
 /*Get user */
 const getUserSavedPosts = async () => {
   try{
-      if(tokenUserID > 0){
+      if(tokenUserID != ""){
         const response = await fetch(`${APIURL}users/${tokenUserID}`, {
             method: "GET",
             headers: {
@@ -57,6 +57,7 @@ const getUserSavedPosts = async () => {
     
         const user = await response.json(); 
         let userPost = user.data.user;
+        console.log(userPost.savedPost);
         return userPost.savedPost;
       }       
   }

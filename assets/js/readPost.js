@@ -121,8 +121,9 @@ const printPosts =  (posts, savedPost) => {
     return template;
 }
 
-document.addEventListener('DOMContentLoaded', async (event) => {
 
+document.addEventListener('DOMContentLoaded', async () => {
+    
     let posts = await getPosts(`${APIURL}posts/.json`);   
     let arrayPost = objectToArray(posts);    
     let savedPost = await getUserSavedPosts();
