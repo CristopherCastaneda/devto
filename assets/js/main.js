@@ -23,7 +23,7 @@ const firebaseConfig = {
   appId: "1:922740208168:web:e073479da552b0f27ebb1d"
 };
 
-const APIURL = "dev-devto-backend-nine.vercel.app";
+const APIURL = "https://devto-backend-nine.vercel.app/";
 //! Functions
 /**
  * Toggle Class
@@ -47,7 +47,7 @@ if(userMenu != null){
 /*Get user */
 const getUserSavedPosts = async () => {
   try{
-      if(tokenUserID > 0){
+      if(tokenUserID != ""){
         const response = await fetch(`${APIURL}users/${tokenUserID}`, {
             method: "GET",
             headers: {
@@ -57,6 +57,7 @@ const getUserSavedPosts = async () => {
     
         const user = await response.json(); 
         let userPost = user.data.user;
+        console.log(userPost.savedPost);
         return userPost.savedPost;
       }       
   }

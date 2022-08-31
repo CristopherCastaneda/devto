@@ -13,7 +13,7 @@ document.addEventListener(("DOMContentLoaded"), async () => {
     catch(error){
         console.log(error);
     }
-    printSavedPost()
+    //printSavedPost()
 });
 
 const printSavedPost = async (savedPost) => {

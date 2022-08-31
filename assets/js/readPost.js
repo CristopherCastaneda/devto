@@ -68,8 +68,8 @@ const printPosts =  (posts, savedPost) => {
         ${imgPost}
         <div class="card-body p-1 p-xl-3">
             <div class="d-flex align-items-center mb-3">
-                <div class="main-profile">
-                    <img class="rounded-circle" src="${post.user.profile_photo}"
+                <div class="main-profile rounded-circle overflow-hidden">
+                    <img class="" src="${post.user.profile_photo}"
                         alt="profile">
                 </div>
                 <div class="mx-2 profile-name p-1">
@@ -121,8 +121,9 @@ const printPosts =  (posts, savedPost) => {
     return template;
 }
 
-document.addEventListener('DOMContentLoaded', async (event) => {
 
+document.addEventListener('DOMContentLoaded', async () => {
+    
     let posts = await getPosts(`${APIURL}posts/.json`);   
     let arrayPost = objectToArray(posts);    
     let savedPost = await getUserSavedPosts();
